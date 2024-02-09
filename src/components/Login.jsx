@@ -14,6 +14,26 @@ const Login = () => {
           <div className="text">{action}</div>
           <div className="line"></div>
         </div>
+
+        <div className="submit-container">
+          <div
+            className={action === "Login" ? "submit gray" : "submit"}
+            onClick={() => {
+              setAction("Sign Up");
+            }}
+          >
+            Sign Up
+          </div>
+          <div
+            className={action === "Sign Up" ? "submit gray" : "submit"}
+            onClick={() => {
+              setAction("Login");
+            }}
+          >
+            Login
+          </div>
+        </div>
+
         <div className="inputs">
           {action === "Login" ? (
             <>
@@ -50,25 +70,12 @@ const Login = () => {
               </div>
             </>
           )}
-        </div>
 
-        <div className="submit-container">
-          <div
-            className={action === "Login" ? "submit gray" : "submit"}
-            onClick={() => {
-              setAction("Sign Up");
-            }}
-          >
-            Sign Up
-          </div>
-          <div
-            className={action === "Sign Up" ? "submit gray" : "submit"}
-            onClick={() => {
-              setAction("Login");
-            }}
-          >
-            Login
-          </div>
+          {action === "Sign Up" ? (
+            <button className="register-button">Registrati</button>
+          ) : (
+            <button className="login-button">Accedi</button>
+          )}
         </div>
       </div>
     </div>
