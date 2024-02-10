@@ -124,7 +124,8 @@
   height: 100%;
   background-image: url(./assets/Banner.jpg);
   background-size: cover;
-  filter: blur(4px);
+  filter: blur(3px);
+  display: flex;
 }
 
 .upperpart {
@@ -137,11 +138,11 @@
   position: relative;
   width: 300px;
   margin-top: 50px;
-  margin-left: 200px;
+  margin-left: 158px;
 }
 .butt1 {
   margin-top: 80px;
-  margin-left: 600px;
+  margin-left: 350px;
   width: 130px;
   border-radius: 15px;
   color: #00aeb5;
@@ -149,6 +150,7 @@
   padding: 5px;
   font-size: 20px;
   border: none;
+  cursor: pointer;
 }
 .butt2 {
   margin-left: 20px;
@@ -159,4 +161,19 @@
   padding: 5px;
   font-size: 20px;
   border: none;
+  cursor: pointer;
+}
+
+.Title {
+  font-size: 65px;
+  margin-top: 200px;
+  margin-left: 158px;
+  color: #fdffff;
+}
+
+.Description {
+  margin-top: 0px;
+  margin-left: 158px;
+  color: #ffffff;
+  font-size: 30px;
 }
