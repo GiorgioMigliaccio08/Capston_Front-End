@@ -2,6 +2,8 @@ import { Col, Button } from "react-bootstrap";
 import Logo from "../assets/Logo.svg";
 import Cartella from "../assets/Cartella.jpg";
 import Calendar from "../assets/Calendar.jpg";
+import { MdEmail } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 export const Homepage = () => {
   return (
@@ -20,15 +22,17 @@ export const Homepage = () => {
           </p>
         </Col>
         <Col lg={6} md={4}>
-          <Button className="butt1">Log-in</Button>
-          <Button className="butt2">Sign-Up</Button>
+          <Link to="/Login">
+            <Button className="butt1">Log-in</Button>
+            <Button className="butt2">Sign-Up</Button>
+          </Link>
         </Col>
       </div>
       <div className="centerpart">
         <Col lg={6}>
           <img src={Cartella} alt="Cartella" className="Folder" />
           <div className="textcalendar">
-            <h1>Prenota & Ricorda !</h1>
+            <h1 className="colortext">Prenota & Ricorda !</h1>
             <p>
               Archivia qui tutti i tuoi dati in modo tale da tenere sempre
               d'occhio <br /> i tuoi documenti delle tue visite passate orem
@@ -42,7 +46,7 @@ export const Homepage = () => {
         </Col>
         <Col lg={6}>
           <div className="textarchivio">
-            <h1>Archivia!</h1>
+            <h1 className="colortext">Archivia!</h1>
             <p>
               Archivia qui tutti i tuoi dati in modo tale da tenere sempre
               d'occhio <br /> i tuoi documenti delle tue visite passate orem
@@ -55,6 +59,13 @@ export const Homepage = () => {
           </div>
           <img src={Calendar} alt="Calendario" className="Calendar" />
         </Col>
+      </div>
+      <div className="medicbanner">
+        <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
+        <div className="input">
+          <MdEmail className="icon" />
+          <input type="email" placeholder="Email" />
+        </div>
       </div>
     </section>
   );
