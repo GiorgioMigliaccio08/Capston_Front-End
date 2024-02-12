@@ -1,7 +1,7 @@
 import { Col, Button } from "react-bootstrap";
 import Logo from "../assets/Logo.svg";
-import Cartella from "../assets/Cartella.jpg";
-import Calendar from "../assets/Calendar.jpg";
+import Cartella from "../assets/folder.svg";
+import Calendar from "../assets/calendar.svg";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -14,10 +14,10 @@ export const Homepage = () => {
           <img src={Logo} alt="La mia foto" className="Logo" />
           <h1 className="Title">Benvenuto!</h1>
           <p className="Description">
-            Heart Archive Hub, è il tuo rifugio digitale <br /> per conservare
-            tutti i tuoi documenti
-            <br /> medici in un unico luogo sicuro e accessibile,
-            <br /> insieme alla gestione semplice e intuitiva
+            Heart Archive Hub, è il tuo rifugio digitale per conservare
+            <br />
+            tutti i tuoi documenti medici in un unico luogo sicuro <br />
+            e accessibile,insieme alla gestione semplice e intuitiva
             <br /> dei tuoi prossimi appuntamenti.
           </p>
         </Col>

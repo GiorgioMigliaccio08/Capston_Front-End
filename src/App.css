@@ -121,10 +121,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 990px;
   background-image: url(./assets/Banner.jpg);
   background-size: cover;
-  filter: blur(3px);
+  filter: blur(1px);
+  opacity: 1;
   display: flex;
 }
 
@@ -136,16 +137,16 @@
 
 .Logo {
   position: relative;
-  width: 300px;
-  margin-top: 50px;
-  margin-left: 158px;
+  width: 400px;
+  margin-top: 55px;
+  margin-left: 200px;
 }
 .butt1 {
   margin-top: 80px;
-  margin-left: 530px;
+  margin-left: 250px;
   width: 130px;
   border-radius: 15px;
-  color: #00aeb5;
+  color: #0089dc;
   background-color: white;
   padding: 5px;
   font-size: 20px;
@@ -157,7 +158,7 @@
   width: 130px;
   border-radius: 15px;
   color: white;
-  background-color: #00aeb5;
+  background-color: #0089dc;
   padding: 5px;
   font-size: 20px;
   border: none;
@@ -165,36 +166,46 @@
 }
 
 .Title {
-  font-size: 65px;
-  margin-top: 200px;
-  margin-left: 158px;
-  color: #fdffff;
+  font-family: "K2D";
+  font-weight: 400;
+  font-size: 90px;
+  font-style: normal;
+  margin-top: 170px;
+  margin-left: 220px;
+  color: #ffffff;
 }
 
 .Description {
-  margin-top: 0px;
-  margin-left: 158px;
+  margin-top: 90px;
+  margin-left: 220px;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: "K2D";
+  font-weight: 700;
+
+  font-style: normal;
 }
 
 .centerpart {
   display: flex;
   background-image: url(./assets/Banner2.jpg);
   width: 100%;
+  height: 1300px;
 }
 
 .Folder {
-  width: 250px;
+  width: 280px;
   margin-top: 200px;
   margin-left: 158px;
+  filter: hue-rotate(149deg) brightness(0.9);
 }
 
 .Calendar {
-  width: 200px;
+  width: 280px;
   margin-top: 100px;
   margin-left: 500px;
   margin-bottom: 60px;
+  filter: hue-rotate(320deg);
 }
 
 .textarchivio {
