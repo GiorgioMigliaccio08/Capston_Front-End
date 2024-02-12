@@ -34,13 +34,11 @@ export const Homepage = () => {
           <div className="textcalendar">
             <h1 className="colortext">Prenota & Ricorda !</h1>
             <p>
-              Archivia qui tutti i tuoi dati in modo tale da tenere sempre
-              d'occhio <br /> i tuoi documenti delle tue visite passate orem
-              ipsum <br />
-              dolor sit amet, consectetur adipisici elit, sed eiusmod tempor{" "}
+              Archivia qui tutti i tuoi dati in modo tale da <br />
+              tenere sempre d'occhio i tuoi documenti delle
               <br />
-              incidunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam.
+              tue visite dolor sit amet, consectetur adipisici <br />
+              elit, sed eiusmod tempor incidunt ut labore
             </p>
           </div>
         </Col>
@@ -48,13 +46,11 @@ export const Homepage = () => {
           <div className="textarchivio">
             <h1 className="colortext">Archivia!</h1>
             <p>
-              Archivia qui tutti i tuoi dati in modo tale da tenere sempre
-              d'occhio <br /> i tuoi documenti delle tue visite passate orem
-              ipsum <br />
-              dolor sit amet, consectetur adipisici elit, sed eiusmod tempor{" "}
+              Archivia qui tutti i tuoi dati in modo tale da <br />
+              tenere sempre d'occhio i tuoi documenti delle
               <br />
-              incidunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam.
+              tue visite dolor sit amet, consectetur adipisici <br />
+              elit, sed eiusmod tempor incidunt ut labore
             </p>
           </div>
           <img src={Calendar} alt="Calendario" className="Calendar" />
