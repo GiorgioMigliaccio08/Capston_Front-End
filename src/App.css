@@ -121,7 +121,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 990px;
+  height: 800px;
   background-image: url(./assets/Banner.jpg);
   background-size: cover;
   filter: blur(1px);
@@ -193,7 +193,7 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-top: 350px;
+  margin-top: 150px;
   margin-bottom: 100px;
 }
 
@@ -206,14 +206,14 @@
 
 .Calendar {
   width: 300px;
-  margin-top: 140px;
+  margin-top: 125px;
   margin-left: 330px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   filter: hue-rotate(320deg);
 }
 
 .textarchivio {
-  margin-top: 110px;
+  margin-top: 120px;
   margin-left: 120px;
   font-size: 25px;
   font-family: "K2D";
@@ -241,7 +241,10 @@
   background-color: #00aeb5;
 }
 .texmedic {
+  font-size: 30px;
+  font-family: "K2D";
+  font-weight: 700;
   color: white;
-  margin-left: 158px;
+  margin-left: 220px;
   margin-top: 80px;
 }
