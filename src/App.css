@@ -249,7 +249,19 @@
   margin-top: 80px;
 }
 
+/* CSS PARTE ACCESS PAGE*/
+
+.navlinks {
+  margin-top: 75px;
+  margin-right: 40px;
+}
+
 .navlink {
-  margin-top: 90px;
-  margin-left: 80px;
+  text-decoration: none;
+  border-bottom: 2px solid white;
+  margin-left: 40px;
+  font-size: 28px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
 }
