@@ -265,3 +265,29 @@
   font-weight: 700;
   color: white;
 }
+
+/* CSS PARTE PRENOTAZIONI*/
+
+.calendar {
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #0089dc;
+}
+
+.month-name {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
