@@ -273,6 +273,7 @@
   border-radius: 5px;
   padding: 10px;
   background-color: #0089dc;
+  margin: 40px;
 }
 
 .month-name {
@@ -287,7 +288,20 @@
 }
 
 .day {
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   padding: 10px;
   text-align: center;
+}
+
+.formprenotazione {
+  background-color: #00aeb5;
+  margin: 40px;
+  border-radius: 5px;
+}
+.singleform {
+  font-size: 25px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
+  margin-right: 20px;
 }

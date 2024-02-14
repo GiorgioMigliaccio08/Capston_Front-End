@@ -25,8 +25,7 @@ const Booking = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic per gestire la prenotazione
-    // Potresti voler inviare i dettagli della prenotazione al backend, aggiornare lo stato, ecc.
+
     console.log("Prenotazione aggiunta:", bookingDetails);
   };
 
@@ -82,7 +81,6 @@ const Booking = () => {
     <Container>
       <Row>
         <Col md={6}>
-          {/* Calendario */}
           <div className="calendar">
             <div className="month">
               <div className="month-name">
@@ -101,9 +99,9 @@ const Booking = () => {
                   <option value={11}>Dicembre</option>
                 </select>
                 <select value={currentYear} onChange={handleYearChange}>
-                  {Array.from({ length: 10 }, (v, i) => (
-                    <option key={i} value={currentYear + i}>
-                      {currentYear + i}
+                  {Array.from({ length: 31 }, (v, i) => (
+                    <option key={2020 + i} value={2020 + i}>
+                      {2020 + i}
                     </option>
                   ))}
                 </select>
@@ -121,46 +119,61 @@ const Booking = () => {
             </div>
           </div>
         </Col>
-        <Col md={6}>
-          {/* Form di prenotazione */}
+        <Col md={6} className="formprenotazione">
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formPlace">
-              <Form.Label>Luogo della prenotazione</Form.Label>
-              <Form.Control
+            <div className="form-group">
+              <label className="singleform">Luogo della prenotazione:</label>
+              <input
                 type="text"
+                className="form-control"
                 name="place"
                 value={bookingDetails.place}
                 onChange={handleInputChange}
                 placeholder="Inserisci il luogo"
               />
-            </Form.Group>
-            <Form.Group controlId="formDate">
-              <Form.Label>Data della prenotazione</Form.Label>
-              <Form.Control
+            </div>
+            <div className="form-group">
+              <label className="singleform">Data della prenotazione:</label>
+              <input
                 type="date"
+                className="form-control"
                 name="date"
                 value={bookingDetails.date}
                 onChange={handleInputChange}
               />
-            </Form.Group>
-            <Form.Group controlId="formVisitType">
-              <Form.Label>Tipo di visita</Form.Label>
-              <Form.Control
-                as="select"
+            </div>
+            <div className="form-group">
+              <label className="singleform">Tipo di visita:</label>
+              <select
+                className="form-control"
                 name="visitType"
                 value={bookingDetails.visitType}
                 onChange={handleInputChange}
               >
+                <option value="Visita di controllo">Visita di controllo</option>
                 <option value="Tac">Tac</option>
+                <option value="Vaccino">Vaccino</option>
                 <option value="Radiografia">Radiografia</option>
+                <option value="Risonanza Magnetica">Risonanza Magnetica</option>
+                <option value="Ecografia">Ecografia</option>
+                <option value="Oculistica">Oculistica</option>
+                <option value="Mammografia">Mammografia</option>
+                <option value="Endoscopia">Endoscopia</option>
+                <option value="Colonoscopia">Colonoscopia</option>
+                <option value="Elettrocardiogramma">Elettrocardiogramma</option>
+                <option value="Analisi del sangue">Analisi del sangue</option>
+                <option value="Dentistica">Dentistica</option>
+                <option value="Ginecologica">Ginecologica</option>
+                <option value="Urologica">Urologica</option>
+                <option value="Ortopedica">Ortopedica</option>
+                <option value="Dermatologica">Dermatologica</option>
                 <option value="Altro">Altro</option>
-              </Form.Control>
-            </Form.Group>
+              </select>
+            </div>
             <Button variant="primary" type="submit">
               Prenota
             </Button>
           </Form>
-          {/* Visualizzazione della data selezionata */}
           {selectedDate && (
             <p>Data selezionata: {selectedDate.toLocaleDateString()}</p>
           )}
