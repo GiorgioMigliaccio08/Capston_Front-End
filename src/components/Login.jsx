@@ -3,9 +3,81 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaCircleUser } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import { getUserLoggedAction } from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const [action, setAction] = useState("Sign Up");
+  const [login, setLogin] = useState({ username: "", password: "" });
+  const [register, setRegister] = useState({
+    username: "",
+    nome: "",
+    cognome: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const sendRegister = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`http://localhost:3001/auth/register`, {
+        method: "POST",
+        body: JSON.stringify(register),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        setRegister({
+          username: "",
+          nome: "",
+          cognome: "",
+          email: "",
+          password: "",
+        });
+
+        navigate("/login");
+      }
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const sendLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch(`http://localhost:3001/auth/login`, {
+        method: "POST",
+        body: JSON.stringify(login),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+
+        localStorage.setItem("token", data.accessToken);
+
+        setLogin({
+          username: "",
+          password: "",
+        });
+        dispatch(getUserLoggedAction());
+        navigate("/");
+      }
+    } catch (error) {
+      setError(error);
+      setErrorMessage("Credenziali errate!");
+    }
+  };
 
   return (
     <div className="background">
@@ -39,42 +111,95 @@ const Login = () => {
             <>
               <div className="input">
                 <FaCircleUser className="icon" />
-                <input type="text" placeholder="Username" />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={login.username}
+                  onChange={(e) =>
+                    setLogin({ ...login, username: e.target.value })
+                  }
+                />
               </div>
               <div className="input">
                 <RiLockPasswordFill className="icon" />
-                <input type="password" placeholder="Password" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={login.password}
+                  onChange={(e) =>
+                    setLogin({ ...login, password: e.target.value })
+                  }
+                />
               </div>
             </>
           ) : (
             <>
               <div className="input">
                 <FaCircleUser className="icon" />
-                <input type="text" placeholder="Username" />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  value={register.username}
+                  onChange={(e) =>
+                    setRegister({ ...register, username: e.target.value })
+                  }
+                />
               </div>
               <div className="input">
                 <FaUser className="icon" />
-                <input type="text" placeholder="Nome" />
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  value={register.nome}
+                  onChange={(e) =>
+                    setRegister({ ...register, nome: e.target.value })
+                  }
+                />
               </div>
               <div className="input">
                 <FaUser className="icon" />
-                <input type="text" placeholder="Cognome" />
+                <input
+                  type="text"
+                  placeholder="Cognome"
+                  value={register.cognome}
+                  onChange={(e) =>
+                    setRegister({ ...register, cognome: e.target.value })
+                  }
+                />
               </div>
               <div className="input">
                 <MdEmail className="icon" />
-                <input type="email" placeholder="Email" />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={register.email}
+                  onChange={(e) =>
+                    setRegister({ ...register, email: e.target.value })
+                  }
+                />
               </div>
               <div className="input">
                 <RiLockPasswordFill className="icon" />
-                <input type="password" placeholder="Password" />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={register.password}
+                  onChange={(e) =>
+                    setRegister({ ...register, password: e.target.value })
+                  }
+                />
               </div>
             </>
           )}
 
           {action === "Sign Up" ? (
-            <button className="register-button">Registrati</button>
+            <button className="register-button" type="submit">
+              Registrati
+            </button>
           ) : (
-            <button className="login-button">Accedi</button>
+            <button className="login-button" type="submit">
+              Accedi
+            </button>
           )}
         </div>
       </div>
