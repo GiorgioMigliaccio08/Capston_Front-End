@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
@@ -20,9 +20,23 @@ const Login = () => {
 
   const [error, setError] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showLoginForm, setShowLoginForm] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (showLoginForm) {
+      setAction("Login");
+      setRegister({
+        username: "",
+        nome: "",
+        cognome: "",
+        email: "",
+        password: "",
+      });
+    }
+  }, [showLoginForm]);
 
   const sendRegister = async (e) => {
     e.preventDefault();
@@ -36,15 +50,7 @@ const Login = () => {
         },
       });
       if (response.ok) {
-        setRegister({
-          username: "",
-          nome: "",
-          cognome: "",
-          email: "",
-          password: "",
-        });
-
-        navigate("/login");
+        setShowLoginForm(true);
       }
     } catch (error) {
       alert(error);
@@ -72,7 +78,6 @@ const Login = () => {
           password: "",
         });
         dispatch(getUserLoggedAction());
-        console.log("Login successful");
         navigate("/homepage");
       }
     } catch (error) {
@@ -84,7 +89,7 @@ const Login = () => {
   return (
     <div className="background">
       <div className="logincontainer">
-        <div className="header">
+        <div className="login_signUp">
           <div className="text">{action}</div>
           <div className="line"></div>
         </div>
