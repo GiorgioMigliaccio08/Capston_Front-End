@@ -12,7 +12,7 @@ export const AccessPage = () => {
       <div className="background-image"></div>
       <div className="upperpart">
         <Col lg={6} md={4}>
-          <img src={Logo} alt="La mia foto" className="Logo" />
+          <img src={Logo} alt="Logo" className="Logo" />
           <h1 className="Title">Benvenuto!</h1>
           <p className="Description">
             Heart Archive Hub, è il tuo rifugio digitale per conservare
@@ -80,7 +80,7 @@ export const AccessPage = () => {
           <img src={Cartella} alt="Cartella" className="Folder" />
           <div className="textcalendar">
             <h1 className="colortext">Prenota & Ricorda !</h1>
-            <p>
+            <p className="colortext1">
               Archivia qui tutti i tuoi dati in modo tale da <br />
               tenere sempre d'occhio i tuoi documenti delle
               <br />
@@ -92,7 +92,7 @@ export const AccessPage = () => {
         <Col lg={6}>
           <div className="textarchivio">
             <h1 className="colortext">Archivia!</h1>
-            <p>
+            <p className="colortext1">
               Archivia qui tutti i tuoi dati in modo tale da <br />
               tenere sempre d'occhio i tuoi documenti delle
               <br />
@@ -104,8 +104,14 @@ export const AccessPage = () => {
         </Col>
       </div>
       <div className="medicbanner">
-        <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
-        <div className="input">
+        <div>
+          <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
+          <p className="texmedic2">
+            Ti contatteremo al più presto per metterti in contatto con il tuo
+            paziente.
+          </p>
+        </div>
+        <div className="input2">
           <MdEmail className="icon" />
           <input type="email" placeholder="Email" />
         </div>
