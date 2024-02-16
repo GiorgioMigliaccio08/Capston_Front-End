@@ -3,9 +3,9 @@ import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { FaCircleUser } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import { getUserLoggedAction } from "../redux/actions";
 import { useDispatch } from "react-redux";
+import { getUserLoggedAction } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [action, setAction] = useState("Sign Up");
@@ -20,8 +20,9 @@ const Login = () => {
 
   const [error, setError] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const sendRegister = async (e) => {
     e.preventDefault();
@@ -71,7 +72,8 @@ const Login = () => {
           password: "",
         });
         dispatch(getUserLoggedAction());
-        navigate("/");
+        console.log("Login successful");
+        navigate("/homepage");
       }
     } catch (error) {
       setError(error);
@@ -109,31 +111,36 @@ const Login = () => {
         <div className="inputs">
           {action === "Login" ? (
             <>
-              <div className="input">
-                <FaCircleUser className="icon" />
-                <input
-                  type="text"
-                  placeholder="Username"
-                  value={login.username}
-                  onChange={(e) =>
-                    setLogin({ ...login, username: e.target.value })
-                  }
-                />
-              </div>
-              <div className="input">
-                <RiLockPasswordFill className="icon" />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={login.password}
-                  onChange={(e) =>
-                    setLogin({ ...login, password: e.target.value })
-                  }
-                />
-              </div>
+              <form onSubmit={sendLogin}>
+                <div className="input">
+                  <FaCircleUser className="icon" />
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    value={login.username}
+                    onChange={(e) =>
+                      setLogin({ ...login, username: e.target.value })
+                    }
+                  />
+                </div>
+                <div className="input">
+                  <RiLockPasswordFill className="icon" />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    value={login.password}
+                    onChange={(e) =>
+                      setLogin({ ...login, password: e.target.value })
+                    }
+                  />
+                </div>
+                <button className="login-button" type="submit">
+                  Accedi
+                </button>
+              </form>
             </>
           ) : (
-            <>
+            <form onSubmit={sendRegister}>
               <div className="input">
                 <FaCircleUser className="icon" />
                 <input
@@ -189,17 +196,10 @@ const Login = () => {
                   }
                 />
               </div>
-            </>
-          )}
-
-          {action === "Sign Up" ? (
-            <button className="register-button" type="submit">
-              Registrati
-            </button>
-          ) : (
-            <button className="login-button" type="submit">
-              Accedi
-            </button>
+              <button className="register-button" type="submit">
+                Registrati
+              </button>
+            </form>
           )}
         </div>
       </div>

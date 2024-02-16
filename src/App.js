@@ -11,8 +11,8 @@ function App() {
         <Routes>
           <Route element={<Homepage />} path="/" />
           <Route element={<Login />} path="/login" />
-          <Route element={<AccessPage />} path="/Homepage" />
-          <Route element={<Booking />} path="/Prenotazioni" />
+          <Route element={<AccessPage />} path="/homepage" />
+          <Route element={<Booking />} path="/prenotazioni" />
         </Routes>
       </BrowserRouter>
     </div>
