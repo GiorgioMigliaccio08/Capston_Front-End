@@ -184,7 +184,6 @@
   font-size: 25px;
   font-family: "K2D";
   font-weight: 700;
-
   font-style: normal;
 }
 
@@ -220,6 +219,9 @@
   font-size: 25px;
   font-family: "K2D";
   font-weight: 700;
+  background-color: #ebeded;
+  border-radius: 15px;
+  border: 1px solid #0089dc;
 }
 
 .textcalendar {
@@ -228,12 +230,21 @@
   font-size: 25px;
   font-family: "K2D";
   font-weight: 700;
+  background-color: #ebeded;
+  border-radius: 15px;
+  border: 1px solid #0089dc;
 }
 .colortext {
-  font-size: 50px;
+  font-size: 40px;
   font-family: "K2D";
   font-weight: 700;
   color: #0089dc;
+  margin-left: 10px;
+}
+.colortext1 {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #042a3e;
 }
 
 .medicbanner {
@@ -248,7 +259,24 @@
   font-weight: 700;
   color: white;
   margin-left: 220px;
-  margin-top: 80px;
+  margin-top: 50px;
+}
+.texmedic2 {
+  font-size: 20px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: #042a3e;
+  margin-left: 220px;
+  margin-top: 10px;
+}
+.input2 {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 380px;
+  height: 50px;
+  background: #eaeaea;
+  border-radius: 6px;
 }
 
 /* CSS PARTE ACCESS PAGE*/
@@ -260,7 +288,6 @@
 
 .navlink {
   text-decoration: none;
-  border-bottom: 2px solid white;
   margin-left: 40px;
   font-size: 28px;
   font-family: "K2D";
@@ -269,8 +296,31 @@
 }
 
 /* CSS PARTE PRENOTAZIONI*/
-
-background {
+.pageprenotazioni {
+  background-color: #006aab;
+  height: 100vh;
+}
+.partealtaprenotazioni {
+  display: flex;
+}
+.Logo2 {
+  width: 400px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.linkprenotazione {
+  margin-left: 400px;
+}
+.navlink2 {
+  text-decoration: none;
+  margin-left: 0px;
+  font-size: 28px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
+  margin-right: 50px;
+}
+.background {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -283,31 +333,41 @@ background {
   padding: 20px;
   margin-top: 30px;
   margin-bottom: 50px;
-  border: 3px solid blue;
-  border-radius: 50px;
-  background-image: url("https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 3px solid #51bce5;
+  border-radius: 30px;
+  background-image: url("https://static.vecteezy.com/ti/foto-gratuito/p2/13099043-date-su-calendario-pagina-sfondo-primo-piano-di-numeri-su-calendario-pagina-gratuito-foto.jpg");
   background-position: center;
   background-size: cover;
+  height: 500px;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #1976d2;
+  background-color: #51bce5;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 15px;
   margin-bottom: 20px;
 }
 
 .header h1 {
   margin: 0;
+  font-size: 35px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
 }
 
 .add-event-button {
   background-color: #fff;
-  color: #1976d2;
+  color: #006aab;
+  font-size: 35px;
+  font-family: "K2D";
+  font-weight: 700;
   border: none;
   padding: 20px;
   font-size: 20px;
@@ -326,7 +386,7 @@ background {
 
 .calendar-container {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .add-event-form {
