@@ -5,15 +5,17 @@ import Calendar from "../assets/calendar.svg";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
+// import { useSelector } from "react-redux";
 
 export const AccessPage = () => {
+  // const User = useSelector((state) => state.home.user);
   return (
     <section className="AccessPage">
       <div className="background-image"></div>
       <div className="upperpart">
         <Col lg={6} md={4}>
           <img src={Logo} alt="Logo" className="Logo" />
-          <h1 className="Title">Benvenuto!</h1>
+          <h1 className="Title">Bentornato!</h1>
           <p className="Description">
             Heart Archive Hub, è il tuo rifugio digitale per conservare
             <br />
