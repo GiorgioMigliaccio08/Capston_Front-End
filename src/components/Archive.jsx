@@ -86,8 +86,8 @@ const Archive = () => {
           </Nav>
         </div>
       </div>
-      <div className="app">
-        <header className="header">
+      <div className="apparchive">
+        <header className="headerarchive">
           <h1>Archivia una Visita:</h1>
           <button className="add-event-button" onClick={handleAddDocumentClick}>
             Aggiungi Visita +
@@ -164,7 +164,6 @@ const Archive = () => {
               </Card>
             </div>
           )}
-          <div className="calendar-container"></div>
         </div>
       </div>
     </div>
