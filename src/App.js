@@ -4,6 +4,7 @@ import Login from "./components/Login";
 import Homepage from "./components/Homepage";
 import AccessPage from "./components/AccessPage";
 import Booking from "./components/Booking";
+import Archive from "./components/Archive";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route element={<Login />} path="/login" />
           <Route element={<AccessPage />} path="/homepage" />
           <Route element={<Booking />} path="/prenotazioni" />
+          <Route element={<Archive />} path="/archivio" />
         </Routes>
       </BrowserRouter>
     </div>
