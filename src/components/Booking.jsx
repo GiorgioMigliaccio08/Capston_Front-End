@@ -10,12 +10,62 @@ const Booking = () => {
   const [events, setEvents] = useState([]);
   const [showAddEventForm, setShowAddEventForm] = useState(false);
   const [formData, setFormData] = useState({
-    name: "",
-    surname: "",
     visitType: "",
-    doctor: "",
+    data: "",
     location: "",
   });
+
+  const addPrenotazione = () => {
+    fetch("http://localhost:3001/prenotazioni", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(body),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
+
+  const getAllPrenotazioni = () => {
+    fetch("http://localhost:3001/prenotazioni", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
+
+  const body = {
+    luogo: formData.location,
+    data: formData.data,
+    tipoVisita: formData.visitType,
+  };
 
   const handleDateChange = (date) => {
     setDate(date);
@@ -36,14 +86,8 @@ const Booking = () => {
       }),
     };
     setEvents([...events, newEvent]);
+    addPrenotazione();
     setShowAddEventForm(false);
-    setFormData({
-      name: "",
-      surname: "",
-      visitType: "",
-      doctor: "",
-      location: "",
-    });
   };
 
   return (
@@ -148,7 +192,7 @@ const Booking = () => {
                 <option value="Altro">Altro</option>
               </select>
               <input
-                type="text"
+                type="date"
                 name="data"
                 placeholder="Data della visita : "
                 value={formData.data}
