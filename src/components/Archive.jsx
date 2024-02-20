@@ -8,6 +8,30 @@ const Archive = () => {
   const [showForm, setShowForm] = useState(false);
   const [documento, setDocumento] = useState(null);
 
+  const addDocumento = () => {
+    fetch("http://localhost:3001/archiviazione", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
+
   const handleAddDocumentClick = () => {
     setShowForm(true);
   };
