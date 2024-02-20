@@ -72,7 +72,7 @@ const Login = () => {
         const data = await response.json();
 
         localStorage.setItem("token", data.accessToken);
-
+        console.log(data);
         setLogin({
           username: "",
           password: "",
