@@ -6,6 +6,7 @@ import { FaCircleUser } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { getUserLoggedAction } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import "../assets/style/Login.css";
 
 const Login = () => {
   const [action, setAction] = useState("Sign Up");
@@ -87,7 +88,7 @@ const Login = () => {
   };
 
   return (
-    <div className="background">
+    <div className="backgroundlogin">
       <div className="logincontainer">
         <div className="login_signUp">
           <div className="text">{action}</div>
