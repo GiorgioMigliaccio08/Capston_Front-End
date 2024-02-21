@@ -1,0 +1,202 @@
+/* CSS PARTE PRENOTAZIONI*/
+.pageprenotazioni {
+  background-color: #006aab;
+  height: 100vh;
+}
+.partealtaprenotazioni {
+  display: flex;
+}
+.Logo2 {
+  width: 400px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.linkprenotazione {
+  margin-left: 400px;
+}
+.navlink2 {
+  text-decoration: none;
+  margin-left: 0px;
+  font-size: 28px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
+  margin-right: 50px;
+}
+.background {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  background-image: url("https://images.unsplash.com/photo-1607368386669-d940ce438fba?q=80&w=1843&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-repeat: no-repeat;
+}
+
+.app {
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 3px solid #51bce5;
+  border-radius: 30px;
+  background-image: url("https://static.vecteezy.com/ti/foto-gratuito/p2/13099043-date-su-calendario-pagina-sfondo-primo-piano-di-numeri-su-calendario-pagina-gratuito-foto.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #51bce5;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 35px;
+  font-family: "K2D";
+  font-weight: 700;
+  color: white;
+}
+
+.add-event-button {
+  background-color: #fff;
+  color: #006aab;
+  font-size: 35px;
+  font-family: "K2D";
+  font-weight: 700;
+  border: none;
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.add-event-button:hover {
+  background-color: #e0e0e0;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calendar-container {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.add-event-form {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-inline: 20px;
+}
+
+.add-event-form h2 {
+  margin-top: 0;
+}
+
+.add-event-form input,
+.add-event-form select {
+  width: calc(100% - 40px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-event-form button {
+  width: calc(100% - 40px);
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-event-form button:hover {
+  background-color: #0d47a1;
+}
+
+.event-list {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.event {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 28px;
+  margin-top: -22px;
+}
+
+.event:last-child {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .calendar-container,
+  .add-event-form {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .add-event-form {
+    margin-left: 0;
+  }
+}
+
+.navlinks {
+  margin-top: 50px;
+  margin-left: 250px;
+}
+
+.buttunaccess1 {
+  height: 55px;
+  width: 115px;
+  margin-left: 20px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid #012c42;
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .Logo2 {
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .navlinks {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .buttunaccess1 {
+    height: 50px;
+    width: 70px;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid #012c42;
+  }
+  .linkprenotazione {
+    margin-left: 150px;
+  }
+}
