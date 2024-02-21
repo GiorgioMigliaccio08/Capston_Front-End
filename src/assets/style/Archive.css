@@ -44,5 +44,40 @@
   border: 1px solid black;
 }
 
-.form-group {
+.navlinks {
+  margin-top: 50px;
+  margin-left: 250px;
+}
+
+.buttunaccess1 {
+  height: 55px;
+  width: 115px;
+  margin-left: 20px;
+  border-radius: 20px;
+  background-color: white;
+  border: 1px solid #134a1f;
+}
+
+@media screen and (min-width: 300px) and (max-width: 800px) {
+  .Logo2 {
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+  .navlinks {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .buttunaccess1 {
+    height: 50px;
+    width: 70px;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid #134a1f;
+  }
+  .linkprenotazione {
+    margin-left: 150px;
+  }
 }
