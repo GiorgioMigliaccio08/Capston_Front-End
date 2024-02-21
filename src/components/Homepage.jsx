@@ -4,6 +4,7 @@ import Cartella from "../assets/folder.svg";
 import Calendar from "../assets/calendar.svg";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import "../assets/style/Homepage.css";
 
 export const Homepage = () => {
   return (
@@ -33,7 +34,7 @@ export const Homepage = () => {
           <img src={Cartella} alt="Cartella" className="Folder" />
           <div className="textcalendar">
             <h1 className="colortext">Prenota & Ricorda !</h1>
-            <p>
+            <p className="texts">
               Archivia qui tutti i tuoi dati in modo tale da <br />
               tenere sempre d'occhio i tuoi documenti delle
               <br />
@@ -45,7 +46,7 @@ export const Homepage = () => {
         <Col lg={6}>
           <div className="textarchivio">
             <h1 className="colortext">Archivia!</h1>
-            <p>
+            <p className="texts">
               Archivia qui tutti i tuoi dati in modo tale da <br />
               tenere sempre d'occhio i tuoi documenti delle
               <br />
@@ -57,7 +58,13 @@ export const Homepage = () => {
         </Col>
       </div>
       <div className="medicbanner">
-        <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
+        <div>
+          <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
+          <p className="texmedic2">
+            Ti contatteremo al più presto per metterti in contatto con il tuo
+            paziente.
+          </p>
+        </div>
         <div className="input">
           <MdEmail className="icon" />
           <input type="email" placeholder="Email" />
