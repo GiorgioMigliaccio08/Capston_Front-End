@@ -162,7 +162,7 @@
   margin-left: 220px;
   margin-top: 10px;
 }
-.input {
+.input2 {
   display: flex;
   align-items: center;
   margin: auto;
@@ -170,6 +170,12 @@
   height: 50px;
   background: #eaeaea;
   border-radius: 6px;
+  margin-top: 70px;
+}
+.emaillogin {
+  border: none;
+  background: #eaeaea;
+  width: 300px;
 }
 
 @media screen and (min-width: 300px) and (max-width: 800px) {
@@ -320,13 +326,18 @@
     margin-left: 40px;
     margin-top: 0px;
   }
-  .input {
+  .input2 {
     display: flex;
     align-items: center;
     margin: auto;
-    width: 160px;
+    width: 190px;
     height: 30px;
     background: #eaeaea;
     border-radius: 6px;
+  }
+  .emaillogin {
+    border: none;
+    background: #eaeaea;
+    width: 120px;
   }
 }

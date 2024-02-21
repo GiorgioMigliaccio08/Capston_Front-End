@@ -65,9 +65,9 @@ export const Homepage = () => {
             paziente.
           </p>
         </div>
-        <div className="input">
+        <div className="input2">
           <MdEmail className="icon" />
-          <input type="email" placeholder="Email" />
+          <input type="email" placeholder="Email" className="emaillogin" />
         </div>
       </div>
     </section>
