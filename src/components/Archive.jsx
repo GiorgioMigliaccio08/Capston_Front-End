@@ -59,6 +59,10 @@ const Archive = () => {
       });
   };
 
+  // FUNZIONE PER MODIFICARE UN DOCUMENTO IN DB :
+
+  // FUNZIONE PER ELIMINARE UN DOCUMENTOE IN DB :
+
   const [luogoVisita, setluogoVisita] = useState("");
   const [dataVisitaEffettuata, setdataVisitaEffettuata] = useState("");
   const [dataVisitaControllo, setdataVisitaControllo] = useState("");
