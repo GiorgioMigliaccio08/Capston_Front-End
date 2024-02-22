@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import Logo from "../assets/Logo.svg";
 import "react-calendar/dist/Calendar.css";
@@ -8,7 +8,7 @@ import "../assets/style/Booking.css";
 
 const Booking = () => {
   const [date, setDate] = useState(new Date());
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(null);
   const [showAddEventForm, setShowAddEventForm] = useState(false);
   const [formData, setFormData] = useState({
     visitType: "",
@@ -44,7 +44,7 @@ const Booking = () => {
 
   // FUNZIONE PER RECUPERARE TUTTE LE PRENOTAZIONE IN DB :
   const getAllPrenotazioni = () => {
-    fetch("http://localhost:3001/prenotazioni", {
+    fetch("http://localhost:3001/users/bookings", {
       method: "GET",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
@@ -59,6 +59,7 @@ const Booking = () => {
       })
       .then((data) => {
         console.log(data);
+        setEvents(data);
       })
       .catch((er) => {
         console.log(er);
@@ -85,19 +86,13 @@ const Booking = () => {
   };
 
   const addEvent = () => {
-    const newEvent = {
-      ...formData,
-      visitDate: date.toLocaleDateString("it-IT", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      }),
-    };
-    setEvents([...events, newEvent]);
     addPrenotazione();
     setShowAddEventForm(false);
   };
 
+  useEffect(() => {
+    getAllPrenotazioni();
+  }, []);
   return (
     <div className="pageprenotazioni">
       <div className="partealtaprenotazioni ">
@@ -216,22 +211,25 @@ const Booking = () => {
               <button onClick={addEvent}>Aggiungi</button>
             </div>
           )}
-          <div className="event-list">
-            {events.map((event, index) => (
-              <div key={index} className="event">
-                <strong style={{ color: "blue" }}>{event.visitDate}</strong>
-                <div>
-                  <strong>Tipo di Visita:</strong> {event.visitType}
+          {events && (
+            <div className="event-list">
+              {events.map((event, index) => (
+                <div key={index} className="event">
+                  <div>
+                    <strong>Tipo di Visita:</strong> {event.tipoVisita}
+                  </div>
+                  <div>
+                    <strong>Data:</strong> {event.data}
+                  </div>
+                  <div>
+                    <strong>Luogo Visita:</strong> {event.luogo}
+                  </div>
+                  <button>Modifica</button>
+                  <button>Elimina</button>
                 </div>
-                <div>
-                  <strong>Data:</strong> {event.data}
-                </div>
-                <div>
-                  <strong>Luogo Visita:</strong> {event.location}
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
