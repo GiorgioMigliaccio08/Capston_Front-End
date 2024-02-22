@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/Logo.svg";
 import { Nav, Card } from "react-bootstrap";
 import "../assets/style/Archive.css";
@@ -8,6 +8,8 @@ const Archive = () => {
   const [showForm, setShowForm] = useState(false);
   const [documento, setDocumento] = useState(null);
 
+  // FUNZIONE PER SALVARE UN DOCUMENTO IN DB :
+
   const addDocumento = () => {
     fetch("http://localhost:3001/archiviazione", {
       method: "POST",
@@ -15,7 +17,7 @@ const Archive = () => {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(body),
     })
       .then((res) => {
         if (res.ok) {
@@ -26,10 +28,47 @@ const Archive = () => {
       })
       .then((data) => {
         console.log(data);
+        setDocumento(data);
       })
       .catch((er) => {
         console.log(er);
       });
+  };
+
+  // FUNZIONE PER RECUPERARE TUTTI I DOCUMENTI IN DB :
+  const getAlldocumenti = () => {
+    fetch("http://localhost:3001/users/documents", {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setDocumento(data);
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
+
+  const [luogoVisita, setluogoVisita] = useState("");
+  const [dataVisitaEffettuata, setdataVisitaEffettuata] = useState("");
+  const [dataVisitaControllo, setdataVisitaControllo] = useState("");
+  const [tipoVisitaEffettuata, settipoVisitaEffettuata] = useState("");
+
+  const body = {
+    luogoVisita: luogoVisita,
+    dataVisitaEffettuata: dataVisitaEffettuata,
+    dataVisitaControllo: dataVisitaControllo,
+    tipoVisitaEffettuata: tipoVisitaEffettuata,
   };
 
   const handleAddDocumentClick = () => {
@@ -39,17 +78,13 @@ const Archive = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const newDocumento = {
-      luogoVisita: formData.get("luogoVisita"),
-      dataVisitaEffettuata: formData.get("dataVisitaEffettuata"),
-      dataVisitaControllo: formData.get("dataVisitaControllo"),
-      tipoVisitaEffettuata: formData.get("tipoVisitaEffettuata"),
-    };
-
-    setDocumento(newDocumento);
+    addDocumento();
     setShowForm(false);
   };
+
+  useEffect(() => {
+    getAlldocumenti();
+  }, []);
 
   return (
     <div className="ArchivePage">
@@ -128,6 +163,9 @@ const Archive = () => {
                       type="text"
                       name="luogoVisita"
                       className="form-input"
+                      onChange={(e) => {
+                        setluogoVisita(e.target.value);
+                      }}
                     />
                   </label>
                 </div>
@@ -138,6 +176,9 @@ const Archive = () => {
                       type="date"
                       name="dataVisitaEffettuata"
                       className="form-input"
+                      onChange={(e) => {
+                        setdataVisitaEffettuata(e.target.value);
+                      }}
                     />
                   </label>
                 </div>
@@ -148,6 +189,9 @@ const Archive = () => {
                       type="date"
                       name="dataVisitaControllo"
                       className="form-input"
+                      onChange={(e) => {
+                        setdataVisitaControllo(e.target.value);
+                      }}
                     />
                   </label>
                 </div>
@@ -158,6 +202,9 @@ const Archive = () => {
                       type="text"
                       name="tipoVisitaEffettuata"
                       className="form-input"
+                      onChange={(e) => {
+                        settipoVisitaEffettuata(e.target.value);
+                      }}
                     />
                   </label>
                 </div>
@@ -175,13 +222,13 @@ const Archive = () => {
                   <Card.Text>
                     <strong>Luogo Visita:</strong> {documento.luogoVisita}
                     <br />
-                    <strong>Data Visita Effettuata:</strong>{" "}
+                    <strong>Data Visita Effettuata:</strong>
                     {documento.dataVisitaEffettuata}
                     <br />
-                    <strong>Data Visita di Controllo:</strong>{" "}
+                    <strong>Data Visita di Controllo:</strong>
                     {documento.dataVisitaControllo}
                     <br />
-                    <strong>Tipo di Visita Effettuata:</strong>{" "}
+                    <strong>Tipo di Visita Effettuata:</strong>
                     {documento.tipoVisitaEffettuata}
                   </Card.Text>
                 </Card.Body>
