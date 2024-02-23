@@ -1,7 +1,7 @@
 /* CSS PARTE PRENOTAZIONI*/
 .pageprenotazioni {
   background-color: #006aab;
-  height: 100vh;
+  height: 1500px;
 }
 .partealtaprenotazioni {
   display: flex;
@@ -11,8 +11,8 @@
   margin-top: 20px;
   margin-left: 40px;
 }
-.linkprenotazione {
-  margin-left: 400px;
+.linkprenotazionebooking {
+  margin-left: 600px;
 }
 .navlink2 {
   text-decoration: none;
@@ -129,23 +129,81 @@
 }
 
 .event-list {
-  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .event {
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: #51bce5;
+  border: 3px solid #041cef;
   border-radius: 5px;
+  flex: 0 0 calc(33.33% - 20px);
   padding: 10px;
-  margin-bottom: 28px;
-  margin-top: -22px;
+  margin: 0 20px 20px 0;
+  box-sizing: border-box;
+}
+.event:nth-child(3n) {
+  margin-right: 0;
+}
+
+.event:nth-last-child(-n + 3) {
+  margin-bottom: 0;
 }
 
 .event:last-child {
   margin-bottom: 0;
 }
+.event-list-group {
+  font-size: 40px;
+  font-family: "K2D";
+  font-weight: 700;
+}
 
+.titleprontazioni {
+  color: white;
+  margin-left: 20px;
+  font-size: 40px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+.modify {
+  background-color: #135cc9;
+  color: white;
+  margin-left: 270px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(45, 45, 45);
+  font-size: 18px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+.delete {
+  color: white;
+  background-color: #135cc9;
+  border-radius: 10px;
+  border: 2px solid rgb(45, 45, 45);
+  font-size: 18px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+.location {
+  color: black;
+}
+.scritta {
+  font-family: "K2D";
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+}
+.scrittadue {
+  font-family: "K2D";
+  font-weight: 700;
+  color: rgb(80, 80, 80);
+  font-size: 22px;
+}
 @media screen and (max-width: 768px) {
   .content {
     flex-direction: column;
@@ -178,6 +236,10 @@
 }
 
 @media screen and (min-width: 300px) and (max-width: 800px) {
+  .pageprenotazioni {
+    background-color: #006aab;
+    height: 1500px;
+  }
   .Logo2 {
     width: 200px;
     margin-top: 20px;
@@ -196,7 +258,7 @@
     background-color: white;
     border: 1px solid #012c42;
   }
-  .linkprenotazione {
-    margin-left: 150px;
+  .linkprenotazionebooking {
+    margin-left: 100px;
   }
 }
