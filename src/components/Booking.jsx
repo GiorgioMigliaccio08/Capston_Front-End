@@ -88,6 +88,7 @@ const Booking = () => {
   const addEvent = () => {
     addPrenotazione();
     setShowAddEventForm(false);
+    getAllPrenotazioni();
   };
 
   useEffect(() => {
@@ -99,7 +100,7 @@ const Booking = () => {
         <div>
           <img src={Logo} alt="Logo" className="Logo2" />
         </div>
-        <div className="linkprenotazione">
+        <div className="linkprenotazionebooking">
           <Nav className="navlinks">
             <Link to="/Homepage">
               <button className="buttunaccess1">
@@ -211,27 +212,35 @@ const Booking = () => {
               <button onClick={addEvent}>Aggiungi</button>
             </div>
           )}
-          {events && (
-            <div className="event-list">
-              {events.map((event, index) => (
-                <div key={index} className="event">
-                  <div>
-                    <strong>Tipo di Visita:</strong> {event.tipoVisita}
-                  </div>
-                  <div>
-                    <strong>Data:</strong> {event.data}
-                  </div>
-                  <div>
-                    <strong>Luogo Visita:</strong> {event.luogo}
-                  </div>
-                  <button>Modifica</button>
-                  <button>Elimina</button>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </div>
+      <h1 className="titleprontazioni">Le tue prenotazioni: </h1>
+      {events && (
+        <div className="event-list">
+          {events.map((event, index) => (
+            <div key={index} className="event">
+              <div>
+                <strong className="scritta">Tipo di Visita:</strong>{" "}
+                <strong className="scrittadue">{event.tipoVisita}</strong>
+              </div>
+              <div>
+                <strong className="scritta">Data:</strong>
+                <strong className="scrittadue"> {event.data}</strong>
+              </div>
+              <div>
+                <strong className="scritta">Luogo Visita:</strong>{" "}
+                <strong className="scrittadue">{event.luogo}</strong>
+              </div>
+              <button type="submit" className="modify">
+                Modifica
+              </button>
+              <button type="submit" className="delete">
+                Elimina
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
