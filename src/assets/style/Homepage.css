@@ -24,6 +24,8 @@
   width: 400px;
   margin-top: 55px;
   margin-left: 200px;
+  background-color: #042a3e;
+  border-radius: 52px;
 }
 .butt1 {
   margin-top: 80px;
@@ -57,8 +59,6 @@
   margin-top: 170px;
   margin-left: 220px;
   color: #0089dc;
-  background: transparent;
-  backdrop-filter: blur(2px);
 }
 
 .Description {
