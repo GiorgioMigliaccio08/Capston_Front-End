@@ -1,6 +1,6 @@
 .ArchivePage {
   background-color: rgb(90, 190, 122);
-  height: 100vh;
+  height: 1700px;
 }
 
 .apparchive {
@@ -58,6 +58,63 @@
   border: 1px solid #134a1f;
 }
 
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 0 0 calc(33.33% - 20px);
+  margin-left: 15px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  background-color: #51e5af;
+}
+
+.card:nth-child(3n) {
+  margin-right: 0;
+}
+.card:nth-last-child(-n + 3) {
+  margin-bottom: 0;
+}
+.linkprenotazionearchive {
+  margin-left: 600px;
+}
+
+.modifyA {
+  background-color: #135cc9;
+  color: white;
+  margin-left: 300px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  border: 2px solid rgb(45, 45, 45);
+  font-size: 18px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+.deleteA {
+  color: white;
+  background-color: #135cc9;
+  border-radius: 10px;
+  border: 2px solid rgb(45, 45, 45);
+  font-size: 18px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+
+.scrittaA {
+  font-family: "K2D";
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  font-size: 23px;
+}
+.scrittadueA {
+  font-family: "K2D";
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
 @media screen and (min-width: 300px) and (max-width: 800px) {
   .Logo2 {
     width: 200px;
@@ -76,8 +133,5 @@
     border-radius: 20px;
     background-color: white;
     border: 1px solid #134a1f;
-  }
-  .linkprenotazione {
-    margin-left: 150px;
   }
 }
