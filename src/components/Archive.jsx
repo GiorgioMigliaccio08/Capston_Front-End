@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const Archive = () => {
   const [showForm, setShowForm] = useState(false);
   const [documento, setDocumento] = useState(null);
+  const [alldocumenti, setDocumenti] = useState(null);
 
   // FUNZIONE PER SALVARE UN DOCUMENTO IN DB :
 
@@ -52,7 +53,7 @@ const Archive = () => {
       })
       .then((data) => {
         console.log(data);
-        setDocumento(data);
+        setDocumenti(data);
       })
       .catch((er) => {
         console.log(er);
@@ -84,6 +85,7 @@ const Archive = () => {
 
     addDocumento();
     setShowForm(false);
+    getAlldocumenti();
   };
 
   useEffect(() => {
@@ -96,7 +98,7 @@ const Archive = () => {
         <div>
           <img src={Logo} alt="Logo" className="Logo2" />
         </div>
-        <div className="linkprenotazione">
+        <div className="linkprenotazionearchive">
           <Nav className="navlinks">
             <Link to="/Homepage">
               <button className="buttunaccess1">
@@ -218,29 +220,56 @@ const Archive = () => {
               </form>
             </div>
           )}
-          {documento && (
-            <div className="card-container">
-              <Card>
-                <Card.Body>
-                  <Card.Title>Visita:</Card.Title>
-                  <Card.Text>
-                    <strong>Luogo Visita:</strong> {documento.luogoVisita}
-                    <br />
-                    <strong>Data Visita Effettuata:</strong>
-                    {documento.dataVisitaEffettuata}
-                    <br />
-                    <strong>Data Visita di Controllo:</strong>
-                    {documento.dataVisitaControllo}
-                    <br />
-                    <strong>Tipo di Visita Effettuata:</strong>
-                    {documento.tipoVisitaEffettuata}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </div>
-          )}
         </div>
       </div>
+      <h1 className="titleprontazioni">Le tue visite precedenti:</h1>
+      {alldocumenti && (
+        <div className="card-container">
+          {alldocumenti.map((documento, i) => {
+            return (
+              <Card>
+                <Card.Body>
+                  <Card.Text>
+                    <strong className="scrittaA">Luogo Visita:</strong>{" "}
+                    <strong className="scrittadueA">
+                      {documento.luogoVisita}
+                    </strong>
+                    <br />
+                    <strong className="scrittaA">
+                      Data Visita Effettuata:
+                    </strong>
+                    <strong className="scrittadueA">
+                      {documento.dataVisitaEffettuata}
+                    </strong>
+                    <br />
+                    <strong className="scrittaA">
+                      Data Visita di Controllo:
+                    </strong>
+                    <strong className="scrittadueA">
+                      {" "}
+                      {documento.dataVisitaControllo}
+                    </strong>
+                    <br />
+                    <strong className="scrittaA">
+                      Tipo di Visita Effettuata:
+                    </strong>
+                    <strong className="scrittadueA">
+                      {" "}
+                      {documento.tipoVisitaEffettuata}
+                    </strong>
+                  </Card.Text>
+                  <button type="submit" className="modifyA">
+                    Modifica
+                  </button>
+                  <button type="submit" className="deleteA">
+                    Elimina
+                  </button>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
