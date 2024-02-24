@@ -12,7 +12,8 @@
   margin-left: 40px;
 }
 .linkprenotazionebooking {
-  margin-left: 600px;
+  margin-left: 650px;
+  margin-top: 60px;
 }
 .navlink2 {
   text-decoration: none;
@@ -22,6 +23,7 @@
   font-weight: 700;
   color: white;
   margin-right: 50px;
+  margin-top: 20px;
 }
 .background {
   margin: 0;
@@ -38,7 +40,6 @@
   margin-bottom: 50px;
   margin-left: 20px;
   margin-right: 20px;
-  border: 3px solid #51bce5;
   border-radius: 30px;
   background-image: url("https://static.vecteezy.com/ti/foto-gratuito/p2/13099043-date-su-calendario-pagina-sfondo-primo-piano-di-numeri-su-calendario-pagina-gratuito-foto.jpg");
   background-position: center;
@@ -137,9 +138,8 @@
 }
 
 .event {
-  background-color: #51bce5;
-  border: 3px solid #041cef;
-  border-radius: 5px;
+  background-color: #f2f2f2;
+  border-radius: 20px;
   flex: 0 0 calc(33.33% - 20px);
   padding: 10px;
   margin: 0 20px 20px 0;
@@ -170,39 +170,43 @@
   font-weight: 700;
 }
 .modify {
-  background-color: #135cc9;
+  background-color: #006aab;
   color: white;
-  margin-left: 270px;
+  margin-left: 250px;
   margin-right: 10px;
   border-radius: 10px;
-  border: 2px solid rgb(45, 45, 45);
   font-size: 18px;
   font-family: "K2D";
   font-weight: 700;
+  border: none;
+  padding: 3.5px 11px;
 }
 .delete {
   color: white;
-  background-color: #135cc9;
+  background-color: #006aab;
   border-radius: 10px;
-  border: 2px solid rgb(45, 45, 45);
   font-size: 18px;
   font-family: "K2D";
   font-weight: 700;
+  border: none;
+  padding: 3.5px 11px;
 }
 .location {
   color: black;
 }
 .scritta {
-  font-family: "K2D";
+  font-family: "sans-serif";
   font-weight: 700;
-  color: rgb(0, 0, 0);
-  font-size: 25px;
+  color: #002a44;
+  font-size: 22px;
+  padding: 7px;
 }
 .scrittadue {
   font-family: "K2D";
   font-weight: 700;
-  color: rgb(80, 80, 80);
-  font-size: 22px;
+  color: #005f9a;
+  font-size: 20px;
+  padding: 7px;
 }
 @media screen and (max-width: 768px) {
   .content {
