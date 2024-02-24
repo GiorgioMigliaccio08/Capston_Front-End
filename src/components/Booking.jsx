@@ -101,7 +101,7 @@ const Booking = () => {
           <img src={Logo} alt="Logo" className="Logo2" />
         </div>
         <div className="linkprenotazionebooking">
-          <Nav className="navlinks">
+          <Nav className="navlinks2">
             <Link to="/Homepage">
               <button className="buttunaccess1">
                 <svg
