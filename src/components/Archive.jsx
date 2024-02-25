@@ -154,13 +154,17 @@ const Archive = () => {
       <div className="apparchive">
         <header className="headerarchive">
           <h1>Archivia una Visita:</h1>
-          <button className="add-event-button" onClick={handleAddDocumentClick}>
+          <button
+            className="add-event-button-archive"
+            onClick={handleAddDocumentClick}
+          >
             Aggiungi Visita +
           </button>
         </header>
-        <div className="content">
+        <div className="contentarchive">
           {showForm && (
             <div className="form-container">
+              <h1 className="titleArc">Informazioni Visita :</h1>
               <form className="document-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label className="form-label">
@@ -214,7 +218,7 @@ const Archive = () => {
                     />
                   </label>
                 </div>
-                <button type="submit" className="submit-button">
+                <button type="submit" className="submit-button-archive">
                   Salva
                 </button>
               </form>
