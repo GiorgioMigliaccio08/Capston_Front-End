@@ -2,7 +2,18 @@
 
 .navlinks.nav {
   margin-top: 70px;
-  margin-left: 200px;
+  margin-left: 100px;
+}
+.Description {
+  margin-top: 90px;
+  margin-left: 120px;
+  color: #ffffff;
+  font-size: 29px;
+  font-family: "K2D";
+  font-weight: 700;
+  font-style: normal;
+  background: transparent;
+  backdrop-filter: blur(4px);
 }
 
 .buttunaccess1 {
@@ -12,7 +23,7 @@
   border-radius: 20px;
   background: transparent;
   backdrop-filter: blur(10px);
-  border: 1px solid #0089dc;
+  border: none;
 }
 .textaccess {
   margin-top: 0;
@@ -38,6 +49,7 @@
   font-size: 15px;
   font-family: "K2D";
   font-weight: 700;
+  border: none;
 }
 
 .logoutpage {

@@ -27,12 +27,11 @@ export const AccessPage = () => {
           <img src={Logo} alt="Logo" className="Logo" />
           <h1 className="Title">Bentornato!</h1>
           <p className="Description">
-            Heart Archive Hub, è il tuo rifugio digitale per
-            <br /> conservare tutti i tuoi documenti medici in <br /> un unico
-            luogo sicuro e accessibile,
+            Heart Archive Hub, è il tuo rifugio digitale per <br />
+            conservare tutti i tuoi documenti medici in un unico <br />
+            luogo sicuro e accessibile,insieme alla gestione
             <br />
-            insieme alla gestione semplice e intuitiva dei
-            <br /> tuoi prossimi appuntamenti.
+            semplice e intuitivadei tuoi prossimi appuntamenti.
           </p>
         </Col>
         <Col lg={6} md={4}>
@@ -106,11 +105,12 @@ export const AccessPage = () => {
           <div className="textcalendar">
             <h1 className="colortext">Prenota & Ricorda !</h1>
             <p className="colortext1">
-              Archivia qui tutti i tuoi dati in modo tale da <br />
-              tenere sempre d'occhio i tuoi documenti delle
+              Ti permette di prenotare e ricordare le <br />
+              tue visite mediche selezionando la tipologia <br />
+              di visita la data ed il luogo dela visita, <br />
+              permettendoti di organizzare le tue prossime
               <br />
-              tue visite dolor sit amet, consectetur adipisici <br />
-              elit, sed eiusmod tempor incidunt ut labore
+              visite in modo efficente!e
             </p>
           </div>
         </Col>
@@ -118,11 +118,12 @@ export const AccessPage = () => {
           <div className="textarchivio">
             <h1 className="colortext">Archivia!</h1>
             <p className="colortext1">
-              Archivia qui tutti i tuoi dati in modo tale da <br />
-              tenere sempre d'occhio i tuoi documenti delle
+              Ti permette di archiviare e di tener traccia
               <br />
-              tue visite dolor sit amet, consectetur adipisici <br />
-              elit, sed eiusmod tempor incidunt ut labore
+              di tutte le tue visite mediche effettuate, <br />
+              ed avere sempre a disposizione un resoconto <br />
+              della tua storia clinica.Rappresenta un modo <br />
+              pratico per gestire la tua salute nel tempo!
             </p>
           </div>
           <img src={Calendar} alt="Calendario" className="Calendar" />
