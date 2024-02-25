@@ -1,4 +1,6 @@
 /* CSS PARTE PRENOTAZIONI*/
+
+@import url("https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 .pageprenotazioni {
   background-color: #006aab;
   height: 1500px;
@@ -80,7 +82,7 @@
 }
 
 .add-event-button:hover {
-  background-color: #e0e0e0;
+  background-color: #cbcbcb;
 }
 
 .content {
@@ -104,6 +106,7 @@
 
 .add-event-form h2 {
   margin-top: 0;
+  color: #002a44;
 }
 
 .add-event-form input,
@@ -123,6 +126,9 @@
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 15px;
+  font-family: "K2D";
+  font-weight: 700;
 }
 
 .add-event-form button:hover {
