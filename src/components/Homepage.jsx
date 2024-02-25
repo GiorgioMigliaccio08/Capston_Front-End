@@ -19,7 +19,7 @@ export const Homepage = () => {
             <br />
             tutti i tuoi documenti medici in un unico luogo sicuro <br />
             e accessibile,insieme alla gestione semplice e intuitiva
-            <br /> dei tuoi prossimi appuntamenti.
+            <br /> dei tuoi prossimi appuntamenti medici.
           </p>
         </Col>
         <Col lg={6} md={4}>
@@ -35,11 +35,12 @@ export const Homepage = () => {
           <div className="textcalendar">
             <h1 className="colortext">Prenota & Ricorda !</h1>
             <p className="texts">
-              Archivia qui tutti i tuoi dati in modo tale da <br />
-              tenere sempre d'occhio i tuoi documenti delle
+              Ti permette di prenotare e ricordare le <br />
+              tue visite mediche selezionando la tipologia <br />
+              di visita la data ed il luogo dela visita, <br />
+              permettendoti di organizzare le tue prossime
               <br />
-              tue visite dolor sit amet, consectetur adipisici <br />
-              elit, sed eiusmod tempor incidunt ut labore
+              visite in modo efficente!
             </p>
           </div>
         </Col>
@@ -47,11 +48,12 @@ export const Homepage = () => {
           <div className="textarchivio">
             <h1 className="colortext">Archivia!</h1>
             <p className="texts">
-              Archivia qui tutti i tuoi dati in modo tale da <br />
-              tenere sempre d'occhio i tuoi documenti delle
+              Ti permette di archiviare e di tener traccia
               <br />
-              tue visite dolor sit amet, consectetur adipisici <br />
-              elit, sed eiusmod tempor incidunt ut labore
+              di tutte le tue visite mediche effettuate, <br />
+              ed avere sempre a disposizione un resoconto <br />
+              della tua storia clinica.Rappresenta un modo <br />
+              pratico per gestire la tua salute nel tempo!
             </p>
           </div>
           <img src={Calendar} alt="Calendario" className="Calendar" />
