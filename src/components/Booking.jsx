@@ -10,6 +10,11 @@ const Booking = () => {
   const [date, setDate] = useState(new Date());
   const [events, setEvents] = useState(null);
   const [showAddEventForm, setShowAddEventForm] = useState(false);
+
+  // USATI PER LA MODIFICA:
+  const [editEventId, setEditEventId] = useState(null);
+  const [editedFormData, setEditedFormData] = useState({});
+
   const [formData, setFormData] = useState({
     visitType: "",
     data: "",
@@ -67,8 +72,78 @@ const Booking = () => {
   };
 
   // FUNZIONE PER MODIFICARE UNA PRENOTAZIONE IN DB :
+  const modifyPrenotazione = (eventId) => {
+    const eventToEdit = events.find((event) => event._id === eventId);
+    setEditEventId(eventId);
+    setEditedFormData({
+      visitType: eventToEdit.tipoVisita,
+      data: eventToEdit.data,
+      location: eventToEdit.luogo,
+    });
+  };
+
+  const handleEditInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedFormData({ ...editedFormData, [name]: value });
+  };
+
+  const submitEditEvent = () => {
+    fetch(`http://localhost:3001/prenotazioni/${editEventId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(editedFormData),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setEvents(
+          events.map((event) => {
+            if (event._id === editEventId) {
+              return { ...event, ...editedFormData };
+            }
+            return event;
+          })
+        );
+        setEditEventId(null);
+        setEditedFormData({});
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
 
   // FUNZIONE PER ELIMINARE UNA PRENOTAZIONE IN DB :
+  const deletePrenotazione = (eventId) => {
+    fetch(`http://localhost:3001/prenotazioni/${eventId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setEvents(events.filter((event) => event._id !== eventId));
+      })
+      .catch((er) => {
+        console.log(er);
+      });
+  };
 
   const body = {
     luogo: formData.location,
@@ -219,24 +294,59 @@ const Booking = () => {
         <div className="event-list">
           {events.map((event, index) => (
             <div key={index} className="event">
-              <div>
-                <strong className="scritta">Tipo di Visita:</strong>{" "}
-                <strong className="scrittadue">{event.tipoVisita}</strong>
-              </div>
-              <div>
-                <strong className="scritta">Data:</strong>
-                <strong className="scrittadue"> {event.data}</strong>
-              </div>
-              <div>
-                <strong className="scritta">Luogo Visita:</strong>{" "}
-                <strong className="scrittadue">{event.luogo}</strong>
-              </div>
-              <button type="submit" className="modify">
-                Modifica
-              </button>
-              <button type="submit" className="delete">
-                Elimina
-              </button>
+              {editEventId === event._id ? (
+                <div className="edit-event-form">
+                  <h2>Modifica Prenotazione:</h2>
+                  <input
+                    type="text"
+                    name="visitType"
+                    value={editedFormData.visitType}
+                    onChange={handleEditInputChange}
+                  />
+                  <input
+                    type="date"
+                    name="data"
+                    value={editedFormData.data}
+                    onChange={handleEditInputChange}
+                  />
+                  <input
+                    type="text"
+                    name="location"
+                    value={editedFormData.location}
+                    onChange={handleEditInputChange}
+                  />
+                  <button onClick={submitEditEvent}>Salva Modifiche</button>
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <strong className="scritta">Tipo di Visita:</strong>{" "}
+                    <strong className="scrittadue">{event.tipoVisita}</strong>
+                  </div>
+                  <div>
+                    <strong className="scritta">Data:</strong>
+                    <strong className="scrittadue"> {event.data}</strong>
+                  </div>
+                  <div>
+                    <strong className="scritta">Luogo Visita:</strong>{" "}
+                    <strong className="scrittadue">{event.luogo}</strong>
+                  </div>
+                  <button
+                    type="submit"
+                    className="modify"
+                    onClick={() => modifyPrenotazione(event._id)}
+                  >
+                    Modifica
+                  </button>
+                  <button
+                    type="submit"
+                    className="delete"
+                    onClick={() => deletePrenotazione(event._id)}
+                  >
+                    Elimina
+                  </button>
+                </>
+              )}
             </div>
           ))}
         </div>
