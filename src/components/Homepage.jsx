@@ -88,6 +88,12 @@ export const Homepage = () => {
             l'esperienza del nostro sito.
           </p>
         </div>
+        <footer className="footer">
+          <div className="creator-info">
+            <p>Sito creato da Giorgio Migliaccio</p>
+            <p>&copy; {new Date().getFullYear()} Tutti i diritti riservati</p>
+          </div>
+        </footer>
       </div>
     </section>
   );
