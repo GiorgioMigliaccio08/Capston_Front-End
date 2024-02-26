@@ -72,6 +72,23 @@ export const Homepage = () => {
           <input type="email" placeholder="Email" className="emaillogin" />
         </div>
       </div>
+      <div className="feedback">
+        <div>
+          <h2>Feedback del sito</h2>
+          <form>
+            <label>
+              Condividi il tuo feedback:
+              <textarea rows={10} cols={40} required />
+            </label>
+            <br />
+            <button type="submit">Invia feedback</button>
+          </form>
+          <p>
+            Grazie per aver condiviso il tuo feedback! Ci aiuta a migliorare
+            l'esperienza del nostro sito.
+          </p>
+        </div>
+      </div>
     </section>
   );
 };
