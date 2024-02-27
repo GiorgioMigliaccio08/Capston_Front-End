@@ -2,7 +2,7 @@
 
 .ArchivePage {
   background-color: #47b641;
-  height: 2100px;
+  height: 1500px;
 }
 
 .apparchive {
@@ -107,6 +107,7 @@
 .card-container {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .card {
@@ -152,6 +153,10 @@
   font-weight: 700;
   color: #47b641;
   font-size: 20px;
+}
+.footerarchive {
+  border: 20px solid #195716;
+  background-color: #5af252;
 }
 @media screen and (min-width: 300px) and (max-width: 800px) {
   .Logo2 {

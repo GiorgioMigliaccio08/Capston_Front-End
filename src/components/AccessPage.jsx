@@ -6,6 +6,7 @@ import Logo from "../assets/Logo.svg";
 import Cartella from "../assets/folder.svg";
 import Calendar from "../assets/calendar.svg";
 import "../assets/style/AccessPage.css";
+import Footer from "../components/Footer";
 
 export const AccessPage = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -141,6 +142,9 @@ export const AccessPage = () => {
           <MdEmail className="icon" />
           <input type="email" placeholder="Email" className="emaillogin" />
         </div>
+      </div>
+      <div className="footerAccesspage">
+        <Footer />
       </div>
     </section>
   );

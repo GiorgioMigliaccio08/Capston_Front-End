@@ -5,6 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 import "../assets/style/Booking.css";
+import Footer from "../components/Footer";
 
 const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -356,6 +357,9 @@ const Booking = () => {
           ))}
         </div>
       )}
+      <div className="footerbooking">
+        <Footer />;
+      </div>
     </div>
   );
 };

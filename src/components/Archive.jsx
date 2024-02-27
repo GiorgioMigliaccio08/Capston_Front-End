@@ -3,6 +3,7 @@ import Logo from "../assets/Logo.svg";
 import { Nav, Card } from "react-bootstrap";
 import "../assets/style/Archive.css";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Archive = () => {
   const [showForm, setShowForm] = useState(false);
@@ -293,6 +294,9 @@ const Archive = () => {
           })}
         </div>
       )}
+      <div className="footerarchive">
+        <Footer />
+      </div>
     </div>
   );
 };

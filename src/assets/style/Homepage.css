@@ -188,6 +188,11 @@
   width: 300px;
 }
 
+.footerHomepage {
+  border: 20px solid #002a44;
+  background-color: #51bce5;
+}
+
 @media screen and (min-width: 300px) and (max-width: 800px) {
   .background-image {
     position: absolute;

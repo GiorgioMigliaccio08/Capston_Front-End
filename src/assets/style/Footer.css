@@ -1,0 +1,21 @@
+.footerdiv {
+  height: 170px;
+}
+.footer-icons {
+  margin-left: 700px;
+}
+.iconfooter {
+  width: 45px;
+  height: auto;
+  color: white;
+  margin-top: 40px;
+}
+
+.copyright {
+  color: white;
+  margin-left: 540px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: "K2D";
+  font-weight: 700;
+}

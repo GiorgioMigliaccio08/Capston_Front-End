@@ -5,6 +5,7 @@ import Calendar from "../assets/calendar.svg";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "../assets/style/Homepage.css";
+import Footer from "../components/Footer";
 
 export const Homepage = () => {
   return (
@@ -72,28 +73,8 @@ export const Homepage = () => {
           <input type="email" placeholder="Email" className="emaillogin" />
         </div>
       </div>
-      <div className="feedback">
-        <div>
-          <h2>Feedback del sito</h2>
-          <form>
-            <label>
-              Condividi il tuo feedback:
-              <textarea rows={10} cols={40} required />
-            </label>
-            <br />
-            <button type="submit">Invia feedback</button>
-          </form>
-          <p>
-            Grazie per aver condiviso il tuo feedback! Ci aiuta a migliorare
-            l'esperienza del nostro sito.
-          </p>
-        </div>
-        <footer className="footer">
-          <div className="creator-info">
-            <p>Sito creato da Giorgio Migliaccio</p>
-            <p>&copy; {new Date().getFullYear()} Tutti i diritti riservati</p>
-          </div>
-        </footer>
+      <div className="footerHomepage">
+        <Footer />
       </div>
     </section>
   );
