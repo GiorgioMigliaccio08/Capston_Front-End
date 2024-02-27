@@ -60,11 +60,9 @@ const Archive = () => {
       });
   };
 
-  // FUNZIONE PER MODIFICARE UN DOCUMENTO IN DB :
-
   // FUNZIONE PER ELIMINARE UN DOCUMENTOE IN DB :
   const deleteDocumento = (documentoId) => {
-    fetch(`http://localhost:3001/documents/${documentoId}`, {
+    fetch(`http://localhost:3001/archiviazione/${documentoId}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
@@ -72,16 +70,11 @@ const Archive = () => {
     })
       .then((res) => {
         if (res.ok) {
-          return res.json();
+          console.log("Eliminato!");
+          window.location.reload();
         } else {
           throw new Error("Errore!");
         }
-      })
-      .then((data) => {
-        console.log(data);
-        setDocumenti(
-          alldocumenti.filter((documento) => documento._id !== documentoId)
-        );
       })
       .catch((er) => {
         console.log(er);
@@ -286,13 +279,11 @@ const Archive = () => {
                       {documento.tipoVisitaEffettuata}
                     </strong>
                   </Card.Text>
-                  <button type="submit" className="modifyA">
-                    Modifica
-                  </button>
+
                   <button
                     type="submit"
                     className="deleteA"
-                    onClick={() => deleteDocumento(documento._id)}
+                    onClick={() => deleteDocumento(documento.id)}
                   >
                     Elimina
                   </button>
