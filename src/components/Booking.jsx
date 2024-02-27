@@ -14,6 +14,15 @@ const Booking = () => {
   // USATI PER LA MODIFICA:
   const [editEventId, setEditEventId] = useState(null);
   const [editedFormData, setEditedFormData] = useState({});
+  const [dataVisita, setdataVisita] = useState("");
+  const [tipoVisita, settipoVisita] = useState("");
+  const [luogoVisita, setluogoVisita] = useState("");
+
+  const payloadModifica = {
+    Luogo: luogoVisita,
+    Data: dataVisita,
+    tipoVisita: tipoVisita,
+  };
 
   const [formData, setFormData] = useState({
     visitType: "",
@@ -73,7 +82,8 @@ const Booking = () => {
 
   // FUNZIONE PER MODIFICARE UNA PRENOTAZIONE IN DB :
   const modifyPrenotazione = (eventId) => {
-    const eventToEdit = events.find((event) => event._id === eventId);
+    console.log(eventId);
+    const eventToEdit = events.find((event) => event.id === eventId);
     setEditEventId(eventId);
     setEditedFormData({
       visitType: eventToEdit.tipoVisita,
@@ -82,19 +92,14 @@ const Booking = () => {
     });
   };
 
-  const handleEditInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditedFormData({ ...editedFormData, [name]: value });
-  };
-
-  const submitEditEvent = () => {
-    fetch(`http://localhost:3001/prenotazioni/${editEventId}`, {
+  const submitEditEvent = (id) => {
+    fetch(`http://localhost:3001/prenotazioni/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
-      body: JSON.stringify(editedFormData),
+      body: JSON.stringify(payloadModifica),
     })
       .then((res) => {
         if (res.ok) {
@@ -105,21 +110,15 @@ const Booking = () => {
       })
       .then((data) => {
         console.log(data);
-        setEvents(
-          events.map((event) => {
-            if (event._id === editEventId) {
-              return { ...event, ...editedFormData };
-            }
-            return event;
-          })
-        );
-        setEditEventId(null);
-        setEditedFormData({});
+        window.location.reload();
       })
+
       .catch((er) => {
         console.log(er);
       });
   };
+
+  console.log(formData);
 
   // FUNZIONE PER ELIMINARE UNA PRENOTAZIONE IN DB :
   const deletePrenotazione = (eventId) => {
@@ -131,14 +130,11 @@ const Booking = () => {
     })
       .then((res) => {
         if (res.ok) {
-          return res.json();
+          console.log("Eliminato!");
+          window.location.reload();
         } else {
           throw new Error("Errore!");
         }
-      })
-      .then((data) => {
-        console.log(data);
-        setEvents(events.filter((event) => event._id !== eventId));
       })
       .catch((er) => {
         console.log(er);
@@ -294,28 +290,37 @@ const Booking = () => {
         <div className="event-list">
           {events.map((event, index) => (
             <div key={index} className="event">
-              {editEventId === event._id ? (
+              {editEventId === event.id ? (
                 <div className="edit-event-form">
                   <h2>Modifica Prenotazione:</h2>
                   <input
                     type="text"
                     name="visitType"
-                    value={editedFormData.visitType}
-                    onChange={handleEditInputChange}
+                    onChange={(e) => {
+                      settipoVisita(e.target.value);
+                    }}
                   />
                   <input
                     type="date"
                     name="data"
-                    value={editedFormData.data}
-                    onChange={handleEditInputChange}
+                    onChange={(e) => {
+                      setdataVisita(e.target.value);
+                    }}
                   />
                   <input
                     type="text"
                     name="location"
-                    value={editedFormData.location}
-                    onChange={handleEditInputChange}
+                    onChange={(e) => {
+                      setluogoVisita(e.target.value);
+                    }}
                   />
-                  <button onClick={submitEditEvent}>Salva Modifiche</button>
+                  <button
+                    onClick={() => {
+                      submitEditEvent(event.id);
+                    }}
+                  >
+                    Salva Modifiche
+                  </button>
                 </div>
               ) : (
                 <>
@@ -332,16 +337,16 @@ const Booking = () => {
                     <strong className="scrittadue">{event.luogo}</strong>
                   </div>
                   <button
-                    type="submit"
+                    type="button"
                     className="modify"
-                    onClick={() => modifyPrenotazione(event._id)}
+                    onClick={() => modifyPrenotazione(event.id)}
                   >
                     Modifica
                   </button>
                   <button
-                    type="submit"
+                    type="button"
                     className="delete"
-                    onClick={() => deletePrenotazione(event._id)}
+                    onClick={() => deletePrenotazione(event.id)}
                   >
                     Elimina
                   </button>
