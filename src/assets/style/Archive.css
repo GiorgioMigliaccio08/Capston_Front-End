@@ -127,19 +127,6 @@
   margin-left: 440px;
 }
 
-.modifyA {
-  background-color: #288b23;
-  color: white;
-  margin-left: 300px;
-  margin-right: 10px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  font-size: 18px;
-  font-family: "K2D";
-  font-weight: 700;
-  border: none;
-  padding: 3.5px 11px;
-}
 .deleteA {
   color: white;
   background-color: #288b23;
@@ -149,6 +136,8 @@
   font-weight: 700;
   border: none;
   padding: 3.5px 11px;
+  margin-bottom: 8px;
+  margin-left: 390px;
 }
 
 .scrittaA {
