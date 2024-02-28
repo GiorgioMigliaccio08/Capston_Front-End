@@ -157,6 +157,7 @@
 .footerarchive {
   border: 20px solid #195716;
   background-color: #5af252;
+  margin-top: 270px;
 }
 @media screen and (min-width: 300px) and (max-width: 800px) {
   .Logo2 {
