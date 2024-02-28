@@ -63,23 +63,29 @@ const Archive = () => {
 
   // FUNZIONE PER ELIMINARE UN DOCUMENTOE IN DB :
   const deleteDocumento = (documentoId) => {
-    fetch(`http://localhost:3001/archiviazione/${documentoId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          console.log("Eliminato!");
-          window.location.reload();
-        } else {
-          throw new Error("Errore!");
-        }
+    const isConfirmed = window.confirm(
+      "Sei sicuro di voler eliminare il Documento?"
+    );
+
+    if (isConfirmed) {
+      fetch(`http://localhost:3001/archiviazione/${documentoId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
       })
-      .catch((er) => {
-        console.log(er);
-      });
+        .then((res) => {
+          if (res.ok) {
+            console.log("Eliminato!");
+            window.location.reload();
+          } else {
+            throw new Error("Errore!");
+          }
+        })
+        .catch((er) => {
+          console.log(er);
+        });
+    }
   };
 
   const [luogoVisita, setluogoVisita] = useState("");
