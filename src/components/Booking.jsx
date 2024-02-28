@@ -153,7 +153,6 @@ const Booking = () => {
         });
     }
   };
-  // window.location.reload();
 
   const body = {
     luogo: formData.location,
