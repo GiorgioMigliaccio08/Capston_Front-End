@@ -94,53 +94,66 @@ const Booking = () => {
   };
 
   const submitEditEvent = (id) => {
-    fetch(`http://localhost:3001/prenotazioni/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-      body: JSON.stringify(payloadModifica),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Errore!");
-        }
-      })
-      .then((data) => {
-        console.log(data);
-        window.location.reload();
-      })
+    const isConfirmed = window.confirm(
+      "Sei sicuro di voler modificare la prenotazione?"
+    );
 
-      .catch((er) => {
-        console.log(er);
-      });
+    if (isConfirmed) {
+      fetch(`http://localhost:3001/prenotazioni/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify(payloadModifica),
+      })
+        .then((res) => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            throw new Error("Errore!");
+          }
+        })
+        .then((data) => {
+          console.log(data);
+          window.location.reload();
+        })
+
+        .catch((er) => {
+          console.log(er);
+        });
+    }
   };
 
   console.log(formData);
 
   // FUNZIONE PER ELIMINARE UNA PRENOTAZIONE IN DB :
   const deletePrenotazione = (eventId) => {
-    fetch(`http://localhost:3001/prenotazioni/${eventId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          console.log("Eliminato!");
-          window.location.reload();
-        } else {
-          throw new Error("Errore!");
-        }
+    const isConfirmed = window.confirm(
+      "Sei sicuro di voler eliminare la prenotazione?"
+    );
+
+    if (isConfirmed) {
+      fetch(`http://localhost:3001/prenotazioni/${eventId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
       })
-      .catch((er) => {
-        console.log(er);
-      });
+        .then((res) => {
+          if (res.ok) {
+            console.log("Eliminato!");
+            window.location.reload();
+          } else {
+            throw new Error("Errore!");
+          }
+        })
+        .catch((er) => {
+          console.log(er);
+        });
+    }
   };
+  // window.location.reload();
 
   const body = {
     luogo: formData.location,
