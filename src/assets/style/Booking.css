@@ -250,6 +250,31 @@
   background-color: #51bce5;
   margin-top: 200px;
 }
+.edit-event-form {
+  margin-left: 70px;
+  margin-bottom: 5px;
+}
+.writemodify {
+  font-family: "sans-serif";
+  font-weight: 700;
+  color: #002a44;
+  font-size: 25px;
+}
+.datamodify {
+  margin-left: 15px;
+}
+.salvamodify {
+  color: white;
+  background-color: #006aab;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: "K2D";
+  font-weight: 700;
+  border: none;
+  padding: 3.5px 11px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
 
 @media screen and (min-width: 300px) and (max-width: 800px) {
   .pageprenotazioni {
