@@ -305,16 +305,18 @@ const Booking = () => {
             <div key={index} className="event">
               {editEventId === event.id ? (
                 <div className="edit-event-form">
-                  <h2>Modifica Prenotazione:</h2>
+                  <h2 className="writemodify">Modifica Prenotazione:</h2>
                   <input
                     type="text"
                     name="visitType"
+                    placeholder="Tipo di visita:"
                     onChange={(e) => {
                       settipoVisita(e.target.value);
                     }}
                   />
                   <input
                     type="date"
+                    className="datamodify"
                     name="data"
                     onChange={(e) => {
                       setdataVisita(e.target.value);
@@ -323,11 +325,13 @@ const Booking = () => {
                   <input
                     type="text"
                     name="location"
+                    placeholder="Luogo:"
                     onChange={(e) => {
                       setluogoVisita(e.target.value);
                     }}
                   />
                   <button
+                    className="salvamodify"
                     onClick={() => {
                       submitEditEvent(event.id);
                     }}
