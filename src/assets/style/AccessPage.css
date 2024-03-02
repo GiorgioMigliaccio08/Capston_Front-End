@@ -1,8 +1,23 @@
 /* CSS PARTE ACCESS PAGE*/
 
 .navlinks.nav {
-  margin-top: 70px;
-  margin-left: 100px;
+  display: flex;
+  margin-left: 0px;
+}
+.navlink {
+  text-decoration: none;
+}
+
+.links {
+  font-size: 30px;
+  color: white;
+  margin-right: 20px;
+  margin-top: 20px;
+  font-family: "K2D";
+  font-weight: 700;
+}
+.links:hover {
+  font-size: 32px;
 }
 .Description {
   margin-top: 90px;
@@ -16,53 +31,45 @@
   backdrop-filter: blur(4px);
 }
 
-.buttunaccess1 {
-  height: 55px;
-  width: 115px;
-  margin-left: 90px;
-  border-radius: 20px;
-  background: transparent;
-  backdrop-filter: blur(10px);
-  border: none;
-}
-.textaccess {
-  margin-top: 0;
-  font-size: 16px;
-  font-family: "K2D";
-  font-weight: 700;
-  color: #012c42;
-}
-
 .emaillogin {
   border: none;
   background: #eaeaea;
   width: 300px;
 }
 .Logoutbt {
-  height: 70px;
-  width: 70px;
-  margin-top: 5px;
-  margin-left: 35px;
+  height: 45px;
+  width: 90px;
+  margin-top: 20px;
+  margin-left: 20px;
   border-radius: 40px;
-  background-color: #012c42;
+  background-color: white;
+  color: #0089dc;
+  font-size: 20px;
+  font-family: "K2D";
+  font-weight: 700;
+  border: none;
+  border: 1px solid white;
+}
+.Logoutbt:hover {
+  background-color: #0089dc;
   color: white;
+}
+
+.logoutpage {
+  background-color: #0077b3;
+  color: white;
+  width: 70px;
+  height: 30px;
+  text-align: center;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 583px;
   font-size: 15px;
   font-family: "K2D";
   font-weight: 700;
   border: none;
-}
-
-.logoutpage {
-  background-color: #012c42;
-  color: white;
-  width: 70px;
-  text-align: center;
-  font-size: 15px;
-  margin-top: 10px;
-  margin-left: 440px;
-  font-size: 15px;
-  font-family: "K2D";
-  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
 .footerAccesspage {
