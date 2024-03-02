@@ -14,18 +14,21 @@
   margin-left: 40px;
 }
 .linkprenotazionebooking {
-  margin-left: 650px;
-  margin-top: 60px;
+  margin-left: 500px;
+  margin-top: 10px;
 }
-.navlink2 {
-  text-decoration: none;
-  margin-left: 0px;
-  font-size: 28px;
+
+.links {
+  display: flex;
+  font-size: 30px;
+  color: white;
+  margin-right: 20px;
+  margin-top: 20px;
   font-family: "K2D";
   font-weight: 700;
-  color: white;
-  margin-right: 50px;
-  margin-top: 20px;
+}
+.links:hover {
+  font-size: 32px;
 }
 .background {
   margin: 0;
