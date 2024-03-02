@@ -76,7 +76,10 @@
 
 .navlinks {
   margin-top: 50px;
-  margin-left: 250px;
+  margin-left: 20px;
+}
+.links:hover {
+  font-size: 32px;
 }
 
 .buttunaccess1 {
@@ -125,7 +128,7 @@
   margin-bottom: 0;
 }
 .linkprenotazionearchive {
-  margin-left: 440px;
+  margin-left: 500px;
 }
 
 .deleteA {
