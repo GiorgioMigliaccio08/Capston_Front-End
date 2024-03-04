@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## IMPORTANT!!
+
+### To make the best use of Heart Archive Hub you must also download the Beck-and code which you can find at the link:
+
+https://github.com/GiorgioMigliaccio08/Capstone_Back-end
