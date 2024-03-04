@@ -9,6 +9,8 @@ import Footer from "../components/Footer";
 import { IoHome } from "react-icons/io5";
 import { FaCalendarPlus } from "react-icons/fa";
 import { RiArchive2Fill } from "react-icons/ri";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -112,6 +114,8 @@ const Booking = () => {
       })
         .then((res) => {
           if (res.ok) {
+            toast.success("Prenotazione modificata con successo!");
+
             return res.json();
           } else {
             throw new Error("Errore!");
@@ -145,10 +149,16 @@ const Booking = () => {
       })
         .then((res) => {
           if (res.ok) {
+            toast.success("Prenotazione eliminata con successo!");
             console.log("Eliminato!");
-            window.location.reload();
+            const updatedEvents = events.filter(
+              (event) => event.id !== eventId
+            );
+            setEvents(updatedEvents);
           } else {
-            throw new Error("Errore!");
+            throw new Error(
+              "Errore durante l'eliminazione della prenotazione."
+            );
           }
         })
         .catch((er) => {
@@ -182,190 +192,200 @@ const Booking = () => {
     getAllPrenotazioni();
   }, []);
   return (
-    <div className="pageprenotazioni">
-      <div className="partealtaprenotazioni ">
-        <div>
-          <img src={Logo} alt="Logo" className="Logo2" />
-        </div>
-        <div className="linkprenotazionebooking">
-          <Nav className="navlinks">
-            <Link to="/Homepage" style={{ textDecoration: "none" }}>
-              <div className="links">
-                <IoHome
-                  style={{
-                    fontSize: "35px",
-                    marginRight: "10px",
-                    color: "#0089DC",
-                  }}
-                />
-                Home
-              </div>
-            </Link>
-            <Link to="/Prenotazioni" style={{ textDecoration: "none" }}>
-              <div className="links">
-                <FaCalendarPlus
-                  style={{
-                    fontSize: "35px",
-                    marginRight: "10px",
-                    color: "#0089DC",
-                  }}
-                />
-                Prenotazioni
-              </div>
-            </Link>
-            <Link to="/Archivio" style={{ textDecoration: "none" }}>
-              <div className="links">
-                <RiArchive2Fill
-                  style={{
-                    fontSize: "35px",
-                    marginRight: "8px",
-                    color: "#0089DC",
-                  }}
-                />{" "}
-                Archivio
-              </div>
-            </Link>
-          </Nav>
-        </div>
-      </div>
-      <div className="app">
-        <header className="header">
-          <h1>Il mio calendario delle prenotazioni:</h1>
-          <button
-            className="add-event-button"
-            onClick={() => setShowAddEventForm(true)}
-          >
-            Aggiungi Prenotazione +
-          </button>
-        </header>
-        <div className="content">
-          <div className="calendar-container">
-            <Calendar onChange={handleDateChange} value={date} />
+    <div>
+      {" "}
+      <ToastContainer />
+      <div className="pageprenotazioni">
+        <div className="partealtaprenotazioni ">
+          <div>
+            <img src={Logo} alt="Logo" className="Logo2" />
           </div>
-          {showAddEventForm && (
-            <div className="add-event-form">
-              <h2>Informazioni Prenotazione : </h2>
-              <select
-                name="visitType"
-                value={formData.visitType}
-                onChange={handleInputChange}
-              >
-                <option value="">Seleziona tipo di visita</option>
-                <option value="Visita di controllo">Visita di controllo</option>
-                <option value="Tac">Tac</option>
-                <option value="Vaccino">Vaccino</option>
-                <option value="Radiografia">Radiografia</option>
-                <option value="Risonanza Magnetica">Risonanza Magnetica</option>
-                <option value="Ecografia">Ecografia</option>
-                <option value="Oculistica">Oculistica</option>
-                <option value="Mammografia">Mammografia</option>
-                <option value="Endoscopia">Endoscopia</option>
-                <option value="Colonoscopia">Colonoscopia</option>
-                <option value="Elettrocardiogramma">Elettrocardiogramma</option>
-                <option value="Analisi del sangue">Analisi del sangue</option>
-                <option value="Dentistica">Dentistica</option>
-                <option value="Ginecologica">Ginecologica</option>
-                <option value="Urologica">Urologica</option>
-                <option value="Ortopedica">Ortopedica</option>
-                <option value="Dermatologica">Dermatologica</option>
-                <option value="Altro">Altro</option>
-              </select>
-              <input
-                type="date"
-                name="data"
-                placeholder="Data della visita : "
-                value={formData.data}
-                onChange={handleInputChange}
-              />
-              <input
-                type="text"
-                name="location"
-                placeholder="Luogo della Visita :"
-                value={formData.location}
-                onChange={handleInputChange}
-              />
-              <button onClick={addEvent}>Aggiungi</button>
-            </div>
-          )}
-        </div>
-      </div>
-      <h1 className="titleprontazioni">Le tue prenotazioni: </h1>
-      {events && (
-        <div className="event-list">
-          {events.map((event, index) => (
-            <div key={index} className="event">
-              {editEventId === event.id ? (
-                <div className="edit-event-form">
-                  <h2 className="writemodify">Modifica Prenotazione:</h2>
-                  <input
-                    type="text"
-                    name="visitType"
-                    placeholder="Tipo di visita:"
-                    onChange={(e) => {
-                      settipoVisita(e.target.value);
+          <div className="linkprenotazionebooking">
+            <Nav className="navlinks">
+              <Link to="/Homepage" style={{ textDecoration: "none" }}>
+                <div className="links">
+                  <IoHome
+                    style={{
+                      fontSize: "35px",
+                      marginRight: "10px",
+                      color: "#0089DC",
                     }}
                   />
-                  <input
-                    type="date"
-                    className="datamodify"
-                    name="data"
-                    onChange={(e) => {
-                      setdataVisita(e.target.value);
-                    }}
-                  />
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="Luogo:"
-                    onChange={(e) => {
-                      setluogoVisita(e.target.value);
-                    }}
-                  />
-                  <button
-                    className="salvamodify"
-                    onClick={() => {
-                      submitEditEvent(event.id);
-                    }}
-                  >
-                    Salva Modifiche
-                  </button>
+                  Home
                 </div>
-              ) : (
-                <>
-                  <div>
-                    <strong className="scritta">Tipo di Visita:</strong>{" "}
-                    <strong className="scrittadue">{event.tipoVisita}</strong>
-                  </div>
-                  <div>
-                    <strong className="scritta">Data:</strong>
-                    <strong className="scrittadue"> {event.data}</strong>
-                  </div>
-                  <div>
-                    <strong className="scritta">Luogo Visita:</strong>{" "}
-                    <strong className="scrittadue">{event.luogo}</strong>
-                  </div>
-                  <button
-                    type="button"
-                    className="modify"
-                    onClick={() => modifyPrenotazione(event.id)}
-                  >
-                    Modifica
-                  </button>
-                  <button
-                    type="button"
-                    className="delete"
-                    onClick={() => deletePrenotazione(event.id)}
-                  >
-                    Elimina
-                  </button>
-                </>
-              )}
-            </div>
-          ))}
+              </Link>
+              <Link to="/Prenotazioni" style={{ textDecoration: "none" }}>
+                <div className="links">
+                  <FaCalendarPlus
+                    style={{
+                      fontSize: "35px",
+                      marginRight: "10px",
+                      color: "#0089DC",
+                    }}
+                  />
+                  Prenotazioni
+                </div>
+              </Link>
+              <Link to="/Archivio" style={{ textDecoration: "none" }}>
+                <div className="links">
+                  <RiArchive2Fill
+                    style={{
+                      fontSize: "35px",
+                      marginRight: "8px",
+                      color: "#0089DC",
+                    }}
+                  />{" "}
+                  Archivio
+                </div>
+              </Link>
+            </Nav>
+          </div>
         </div>
-      )}
-      <div className="footerbooking">
-        <Footer />;
+        <div className="app">
+          <header className="header">
+            <h1>Il mio calendario delle prenotazioni:</h1>
+            <button
+              className="add-event-button"
+              onClick={() => setShowAddEventForm(true)}
+            >
+              Aggiungi Prenotazione +
+            </button>
+          </header>
+          <div className="content">
+            <div className="calendar-container">
+              <Calendar onChange={handleDateChange} value={date} />
+            </div>
+            {showAddEventForm && (
+              <div className="add-event-form">
+                <h2>Informazioni Prenotazione : </h2>
+                <select
+                  name="visitType"
+                  value={formData.visitType}
+                  onChange={handleInputChange}
+                >
+                  <option value="">Seleziona tipo di visita</option>
+                  <option value="Visita di controllo">
+                    Visita di controllo
+                  </option>
+                  <option value="Tac">Tac</option>
+                  <option value="Vaccino">Vaccino</option>
+                  <option value="Radiografia">Radiografia</option>
+                  <option value="Risonanza Magnetica">
+                    Risonanza Magnetica
+                  </option>
+                  <option value="Ecografia">Ecografia</option>
+                  <option value="Oculistica">Oculistica</option>
+                  <option value="Mammografia">Mammografia</option>
+                  <option value="Endoscopia">Endoscopia</option>
+                  <option value="Colonoscopia">Colonoscopia</option>
+                  <option value="Elettrocardiogramma">
+                    Elettrocardiogramma
+                  </option>
+                  <option value="Analisi del sangue">Analisi del sangue</option>
+                  <option value="Dentistica">Dentistica</option>
+                  <option value="Ginecologica">Ginecologica</option>
+                  <option value="Urologica">Urologica</option>
+                  <option value="Ortopedica">Ortopedica</option>
+                  <option value="Dermatologica">Dermatologica</option>
+                  <option value="Altro">Altro</option>
+                </select>
+                <input
+                  type="date"
+                  name="data"
+                  placeholder="Data della visita : "
+                  value={formData.data}
+                  onChange={handleInputChange}
+                />
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Luogo della Visita :"
+                  value={formData.location}
+                  onChange={handleInputChange}
+                />
+                <button onClick={addEvent}>Aggiungi</button>
+              </div>
+            )}
+          </div>
+        </div>
+        <h1 className="titleprontazioni">Le tue prenotazioni: </h1>
+        {events && (
+          <div className="event-list">
+            {events.map((event, index) => (
+              <div key={index} className="event">
+                {editEventId === event.id ? (
+                  <div className="edit-event-form">
+                    <h2 className="writemodify">Modifica Prenotazione:</h2>
+                    <input
+                      type="text"
+                      name="visitType"
+                      placeholder="Tipo di visita:"
+                      onChange={(e) => {
+                        settipoVisita(e.target.value);
+                      }}
+                    />
+                    <input
+                      type="date"
+                      className="datamodify"
+                      name="data"
+                      onChange={(e) => {
+                        setdataVisita(e.target.value);
+                      }}
+                    />
+                    <input
+                      type="text"
+                      name="location"
+                      placeholder="Luogo:"
+                      onChange={(e) => {
+                        setluogoVisita(e.target.value);
+                      }}
+                    />
+                    <button
+                      className="salvamodify"
+                      onClick={() => {
+                        submitEditEvent(event.id);
+                      }}
+                    >
+                      Salva Modifiche
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    <div>
+                      <strong className="scritta">Tipo di Visita:</strong>{" "}
+                      <strong className="scrittadue">{event.tipoVisita}</strong>
+                    </div>
+                    <div>
+                      <strong className="scritta">Data:</strong>
+                      <strong className="scrittadue"> {event.data}</strong>
+                    </div>
+                    <div>
+                      <strong className="scritta">Luogo Visita:</strong>{" "}
+                      <strong className="scrittadue">{event.luogo}</strong>
+                    </div>
+                    <button
+                      type="button"
+                      className="modify"
+                      onClick={() => modifyPrenotazione(event.id)}
+                    >
+                      Modifica
+                    </button>
+                    <button
+                      type="button"
+                      className="delete"
+                      onClick={() => deletePrenotazione(event.id)}
+                    >
+                      Elimina
+                    </button>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+        <div className="footerbooking">
+          <Footer />;
+        </div>
       </div>
     </div>
   );
