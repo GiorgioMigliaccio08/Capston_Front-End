@@ -38,7 +38,7 @@ export const Homepage = () => {
             <p className="texts">
               Ti permette di prenotare e ricordare le <br />
               tue visite mediche selezionando la tipologia <br />
-              di visita la data ed il luogo dela visita, <br />
+              di visita la data ed il luogo della visita, <br />
               permettendoti di organizzare le tue prossime
               <br />
               visite in modo efficente!
@@ -61,16 +61,17 @@ export const Homepage = () => {
         </Col>
       </div>
       <div className="medicbanner">
+        <div className="immaginemedico"></div>
         <div>
           <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
           <p className="texmedic2">
             Ti contatteremo al più presto per metterti in contatto con il tuo
             paziente.
           </p>
-        </div>
-        <div className="input2">
-          <MdEmail className="icon" />
-          <input type="email" placeholder="Email" className="emaillogin" />
+          <div className="input2">
+            <MdEmail className="icon" />
+            <input type="email" placeholder="Email" className="emaillogin" />
+          </div>
         </div>
       </div>
       <div className="footerHomepage">
