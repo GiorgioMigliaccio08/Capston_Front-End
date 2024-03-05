@@ -95,7 +95,8 @@
 
 .calendar-container {
   flex: 1;
-  margin-right: 10px;
+
+  margin-left: 140px;
 }
 
 .add-event-form {
@@ -104,7 +105,7 @@
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-inline: 20px;
+  margin-inline: 30px;
 }
 
 .add-event-form h2 {
@@ -191,6 +192,10 @@
   border: none;
   padding: 3.5px 11px;
 }
+.modify:hover {
+  background-color: white;
+  color: #006aab;
+}
 .delete {
   color: white;
   background-color: #006aab;
@@ -200,6 +205,10 @@
   font-weight: 700;
   border: none;
   padding: 3.5px 11px;
+}
+.delete:hover {
+  background-color: white;
+  color: #006aab;
 }
 .location {
   color: black;
@@ -279,19 +288,57 @@
   margin-left: 10px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 800px) {
+@media screen and (min-width: 300px) and (max-width: 900px) {
   .pageprenotazioni {
     background-color: #006aab;
-    height: 1500px;
+    height: 2200px;
+  }
+  .app {
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 30px;
+    background-image: url("https://static.vecteezy.com/ti/foto-gratuito/p2/13099043-date-su-calendario-pagina-sfondo-primo-piano-di-numeri-su-calendario-pagina-gratuito-foto.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+  }
+  .add-event-form {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-inline: 30px;
+    margin-top: 20px;
   }
   .Logo2 {
-    width: 200px;
-    margin-top: 20px;
-    margin-left: 40px;
+    width: 250px;
+    margin-top: 60px;
+    margin-left: 50px;
   }
-  .navlinks {
-    margin-top: 20px;
-    margin-left: 20px;
+  .navlinks.nav {
+    display: flex;
+  }
+  .navlink {
+    text-decoration: none;
+  }
+
+  .links {
+    font-size: 20px;
+    color: white;
+
+    margin-top: 10px;
+    font-family: "K2D";
+    font-weight: 700;
+  }
+  .links:hover {
+    font-size: 20px;
+  }
+  .Logoutbt {
+    display: none;
   }
 
   .buttunaccess1 {
@@ -303,6 +350,43 @@
     border: 1px solid #012c42;
   }
   .linkprenotazionebooking {
-    margin-left: 100px;
+    margin-left: 240px;
+  }
+  .titleprontazioni {
+    color: white;
+    margin-left: 220px;
+    font-size: 40px;
+    font-family: "K2D";
+    font-weight: 700;
+  }
+  .event-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 200px;
+    margin-right: 20px;
+    margin-bottom: 70px;
+  }
+  .modify {
+    background-color: #006aab;
+    color: white;
+    margin-left: 250px;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "K2D";
+    font-weight: 700;
+    border: none;
+    padding: 3.5px 11px;
+  }
+  .delete {
+    color: white;
+    background-color: #006aab;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: "K2D";
+    font-weight: 700;
+    border: none;
+    padding: 3.5px 11px;
   }
 }

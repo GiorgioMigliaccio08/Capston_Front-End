@@ -11,6 +11,7 @@ import { FaCalendarPlus } from "react-icons/fa";
 import { RiArchive2Fill } from "react-icons/ri";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 
 const Booking = () => {
   const [date, setDate] = useState(new Date());
@@ -56,9 +57,19 @@ const Booking = () => {
       })
       .then((data) => {
         console.log(data);
+        Swal.fire({
+          title: "Success!",
+          text: "Prenotazione aggiunta con successo!",
+          icon: "success",
+        });
       })
       .catch((er) => {
         console.log(er);
+        Swal.fire({
+          title: "Errore!",
+          text: "Si è verificato un errore durante l'aggiunta della prenotazione.",
+          icon: "error",
+        });
       });
   };
 
@@ -99,72 +110,90 @@ const Booking = () => {
   };
 
   const submitEditEvent = (id) => {
-    const isConfirmed = window.confirm(
-      "Sei sicuro di voler modificare la prenotazione?"
-    );
-
-    if (isConfirmed) {
-      fetch(`http://localhost:3001/prenotazioni/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify(payloadModifica),
+    fetch(`http://localhost:3001/prenotazioni/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+      body: JSON.stringify(payloadModifica),
+    })
+      .then((res) => {
+        if (res.ok) {
+          toast.success("Prenotazione modificata con successo!");
+          return res.json();
+        } else {
+          throw new Error("Errore!");
+        }
       })
-        .then((res) => {
-          if (res.ok) {
-            toast.success("Prenotazione modificata con successo!");
-
-            return res.json();
-          } else {
-            throw new Error("Errore!");
-          }
-        })
-        .then((data) => {
-          console.log(data);
-          window.location.reload();
-        })
-
-        .catch((er) => {
-          console.log(er);
+      .then((data) => {
+        console.log(data);
+        Swal.fire({
+          title: "Good job!",
+          text: "Prenotazione modificata con successo!",
+          icon: "success",
         });
-    }
+        window.location.reload();
+      })
+      .catch((er) => {
+        console.log(er);
+        Swal.fire({
+          title: "Errore!",
+          text: "Si è verificato un errore durante la modifica della prenotazione.",
+          icon: "error",
+        });
+      });
   };
 
   console.log(formData);
 
   // FUNZIONE PER ELIMINARE UNA PRENOTAZIONE IN DB :
   const deletePrenotazione = (eventId) => {
-    const isConfirmed = window.confirm(
-      "Sei sicuro di voler eliminare la prenotazione?"
-    );
-
-    if (isConfirmed) {
-      fetch(`http://localhost:3001/prenotazioni/${eventId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      })
-        .then((res) => {
-          if (res.ok) {
-            toast.success("Prenotazione eliminata con successo!");
-            console.log("Eliminato!");
-            const updatedEvents = events.filter(
-              (event) => event.id !== eventId
-            );
-            setEvents(updatedEvents);
-          } else {
-            throw new Error(
-              "Errore durante l'eliminazione della prenotazione."
-            );
-          }
+    Swal.fire({
+      title: "Eliminare la prenotazione?",
+      text: "Questa azione non può essere annullata!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sì, elimina!",
+      cancelButtonText: "Annulla",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3001/prenotazioni/${eventId}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         })
-        .catch((er) => {
-          console.log(er);
-        });
-    }
+          .then((res) => {
+            if (res.ok) {
+              console.log("Prenotazione eliminata con successo!");
+              const updatedEvents = events.filter(
+                (event) => event.id !== eventId
+              );
+              setEvents(updatedEvents);
+              Swal.fire(
+                "Eliminato!",
+                "La prenotazione è stata eliminata con successo.",
+                "success"
+              );
+            } else {
+              throw new Error(
+                "Errore durante l'eliminazione della prenotazione."
+              );
+            }
+          })
+          .catch((er) => {
+            console.log(er);
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Si è verificato un errore durante l'eliminazione!",
+            });
+          });
+      }
+    });
   };
 
   const body = {
