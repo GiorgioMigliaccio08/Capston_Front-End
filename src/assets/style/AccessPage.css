@@ -36,6 +36,7 @@
   background: #eaeaea;
   width: 300px;
 }
+
 .Logoutbt {
   height: 45px;
   width: 90px;
@@ -77,10 +78,29 @@
   background-color: #51bce5;
 }
 
-@media screen and (min-width: 300px) and (max-width: 800px) {
-  .navlinks {
-    margin-top: 30px;
-    margin-left: 0px;
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .navlinks.nav {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+  }
+  .navlink {
+    text-decoration: none;
+  }
+
+  .links {
+    font-size: 20px;
+    color: white;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-family: "K2D";
+    font-weight: 700;
+  }
+  .links:hover {
+    font-size: 25px;
+  }
+  .Logoutbt {
+    display: none;
   }
 
   .buttunaccess1 {
@@ -110,6 +130,24 @@
     font-size: 5px;
     font-family: "K2D";
     font-weight: 700;
+  }
+  .Title {
+    font-family: "K2D";
+    font-weight: 400;
+    font-size: 70px;
+    font-style: normal;
+    margin-top: 100px;
+    margin-left: 40px;
+    color: #0089dc;
+  }
+  .Description {
+    color: #ffffff;
+    font-size: 25px;
+    font-family: "K2D";
+    font-weight: 700;
+    font-style: normal;
+    background: transparent;
+    backdrop-filter: blur(4px);
   }
   .emaillogin {
     border: none;

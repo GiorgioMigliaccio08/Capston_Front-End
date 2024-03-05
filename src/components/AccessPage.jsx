@@ -19,7 +19,6 @@ export const AccessPage = () => {
   };
 
   const handleLogout = () => {
-    // Implementa qui la logica per il logout
     console.log("Logout eseguito");
   };
 
@@ -121,19 +120,22 @@ export const AccessPage = () => {
           <img src={Calendar} alt="Calendario" className="Calendar" />
         </Col>
       </div>
+
       <div className="medicbanner">
+        <div className="immaginemedico"></div>
         <div>
           <h2 className="texmedic">Sei un medico , lascia la tua mail !</h2>
           <p className="texmedic2">
             Ti contatteremo al più presto per metterti in contatto con il tuo
             paziente.
           </p>
-        </div>
-        <div className="input2">
-          <MdEmail className="icon" />
-          <input type="email" placeholder="Email" className="emaillogin" />
+          <div className="input2">
+            <MdEmail className="icon" />
+            <input type="email" placeholder="Email" className="emaillogin" />
+          </div>
         </div>
       </div>
+
       <div className="footerAccesspage">
         <Footer />
       </div>
