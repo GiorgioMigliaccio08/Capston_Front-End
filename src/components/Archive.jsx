@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import { IoHome } from "react-icons/io5";
 import { FaCalendarPlus } from "react-icons/fa";
 import { RiArchive2Fill } from "react-icons/ri";
+import Swal from "sweetalert2";
 
 const Archive = () => {
   const [showForm, setShowForm] = useState(false);
@@ -14,7 +15,6 @@ const Archive = () => {
   const [alldocumenti, setDocumenti] = useState(null);
 
   // FUNZIONE PER SALVARE UN DOCUMENTO IN DB :
-
   const addDocumento = () => {
     fetch("http://localhost:3001/archiviazione", {
       method: "POST",
@@ -34,9 +34,19 @@ const Archive = () => {
       .then((data) => {
         console.log(data);
         setDocumento(data);
+        Swal.fire({
+          title: "Success!",
+          text: "Documento aggiunto con successo!",
+          icon: "success",
+        });
       })
       .catch((er) => {
         console.log(er);
+        Swal.fire({
+          title: "Errore!",
+          text: "Si è verificato un errore durante l'aggiunta del documento.",
+          icon: "error",
+        });
       });
   };
 
@@ -66,29 +76,33 @@ const Archive = () => {
 
   // FUNZIONE PER ELIMINARE UN DOCUMENTOE IN DB :
   const deleteDocumento = (documentoId) => {
-    const isConfirmed = window.confirm(
-      "Sei sicuro di voler eliminare il Documento?"
-    );
-
-    if (isConfirmed) {
-      fetch(`http://localhost:3001/archiviazione/${documentoId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+    fetch(`http://localhost:3001/archiviazione/${documentoId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log("Eliminato!");
+          Swal.fire({
+            title: "Success!",
+            text: "Documento eliminato con successo!",
+            icon: "success",
+          });
+          window.location.reload();
+        } else {
+          throw new Error("Errore!");
+        }
       })
-        .then((res) => {
-          if (res.ok) {
-            console.log("Eliminato!");
-            window.location.reload();
-          } else {
-            throw new Error("Errore!");
-          }
-        })
-        .catch((er) => {
-          console.log(er);
+      .catch((er) => {
+        console.log(er);
+        Swal.fire({
+          title: "Errore!",
+          text: "Si è verificato un errore durante l'eliminazione del documento.",
+          icon: "error",
         });
-    }
+      });
   };
 
   const [luogoVisita, setluogoVisita] = useState("");
@@ -241,7 +255,7 @@ const Archive = () => {
           )}
         </div>
       </div>
-      <h1 className="titleprontazioni">Le tue visite precedenti:</h1>
+      <h1 className="titlearchive">Le tue visite precedenti:</h1>
       {alldocumenti && (
         <div className="card-container">
           {alldocumenti.map((documento, i) => {
